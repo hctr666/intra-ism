@@ -7,8 +7,9 @@ h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 40px;
-    padding: 50px;
+    padding: 30px;
     color: #ff3e46;
+    line-height: 50px;
 }
 
 h3.section-subheading {

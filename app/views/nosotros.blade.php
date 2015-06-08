@@ -9,6 +9,8 @@
 	    font-size: 14px;
 	    line-height: 1.75;
 	    color: rgba(0,0,0,.6);
+	    margin-left: 10px;
+	    margin-right: auto;
 	}
 
 	div.nos-parrf > .col-md-4 {

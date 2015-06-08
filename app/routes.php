@@ -11,15 +11,6 @@
 |
 */
 
-/*Route::get('prueba', function(){
-	$user = new User();
-	$user->email = "hctr.441@gmail.com";
-	$user->real_name = "hctr666";
-	$user->password = "4n4lv0m1t";
-	$user->save();
-	return "<script>alert('El usuario ha sido registrado :)');</script>";
-});*/
-
 /*Route::get('/', 'AuthController@get_login');
 Route::get('login', 'AuthController@get_login');
 Route::post('login', 'AuthController@post_login');
@@ -62,8 +53,10 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('user/delete/{id}', 'UserController@get_delete');
 	Route::post('user/update/{id}', 'UserController@post_update');
 
-	Route::get('selec-op/{area}', array( 'as' => 'opciones', 'uses' => 'SelectorController@get_area_index'));
-	
+	//Route::get('selec-op/{area}', array( 'as' => 'opciones', 'uses' => 'SelectorController@get_area_index'));
+	Route::get('equipo', array('as' => 'equipo', 'uses' => 'EquipoAreaController@get_equipo_index'));
+	Route::get('nosotros', array('as' => 'nosotros', 'uses' => 'NosotrosController@get_index'));
+
 	if (Auth::user()) {
 
 	}

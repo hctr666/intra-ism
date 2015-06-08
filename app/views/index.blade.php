@@ -96,9 +96,8 @@
 			<!-- Menu -->
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="./" title="Intranet ISM">Inicio</a></li>
-				<li><a href="#nosotros" class="we" title="Misión, Visión y valores ISM">Nosotros</a></li>
-				<li><a href="#noticias" title="Noticias destacadas y novedades">Noticias</a></li>
-				<li><a href="#" title="Blog ISM">Blog ISM</a></li>
+				<li><a href="#nosotros" id="we" title="Misión, Visión y valores ISM">Nosotros</a></li>
+				<li><a href="#noticias" id="news" title="Noticias destacadas y novedades">Noticias</a></li>
 				<!--li><a id="top-arrow" href="#">^</a></li-->
 			</ul>
 		</div>
@@ -112,14 +111,14 @@
 		<div class="container">
 						
 		</div>
-		<div class="container">
+		<div id="contenedor" class="container" style="min-height:600px; border-width:1px; border-color:gray;">
 			@include('nosotros')
 		</div>
 		<!-- Site -->
 		<div id="noticias" class="container">
-			<div style="height:45px;"></div>		
+			<div style="height:65px; margin-bottom:25px;"></div>		
 			<div class="col-lg-8 col-md-8">
-				@include('area-files')
+				@include('area-grids')
 			</div>
 			<div class="col-lg-4 col-md-4">
 				<div>
@@ -142,7 +141,7 @@
 				<li class="sb-close"><a href="#noticias">Noticias</a></li>
 				<li class="sb-close"><a href="#agenda">Agenda ISM</a></li>
 				<li class="sb-close"><a href="#encuestas">Encuestas</a></li>
-				<li class="sb-close"><a href="#">El Blog</a></li>
+				<li class="sb-close"><a href="http://localhost/laravel-blog/public">El Blog</a></li>
 				<li class="sb-close"><a href="#ayuda">Ayuda</a></li>
 				<li class="sb-close"><small>Intranet co. &copy; ISM - 2015</small></li>
 			</ul>
@@ -162,6 +161,7 @@
 			</ul>
 		</aside>
 	</div>
+	<div>@include('modals.opc-area')</div>
 	<!-- /.sb-right -->
 
 	<!--Pié de página-->
@@ -232,73 +232,6 @@
 	<script type="text/javascript">
 		$(".resu-new").ellipsis();
 	</script>
-	
-	<!-- Further Tracking -->
-	<script>
-		/*(function($) {
-			$(document).ready(function() {
-				// Downloads
-				// 0.10.2
-				$('a.download-0102').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.10.2', {'nonInteraction': 1});
-				});
-				// 0.10.1
-				$('a.download-0101').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.10.1', {'nonInteraction': 1});
-				});
-				// 0.10
-				$('a.download-010').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.10', {'nonInteraction': 1});
-				});
-				// 0.9.4
-				$('a.download-094').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.9.4', {'nonInteraction': 1});
-				});
-				// 0.9
-				$('a.download-09').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.9', {'nonInteraction': 1});
-				});
-				// 0.8.2
-				$('a.download-082').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.8.2', {'nonInteraction': 1});
-				});
-				// 0.8.1
-				$('a.download-081').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.8.1', {'nonInteraction': 1});
-				});
-				// 0.8
-				$('a.download-08').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.8', {'nonInteraction': 1});
-				});
-				// 0.7.1
-				$('a.download-071').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.7.1', {'nonInteraction': 1});
-				});
-				// 0.7
-				$('a.download-07').on('click', function() {
-					ga('send', 'event', 'Download', 'Slidebars', '0.7', {'nonInteraction': 1});
-				});
-				// Github
-				$('a.github').on('click', function() {
-					ga('send', 'event', 'External Link', 'GitHub', {'nonInteraction': 1});
-				});
-				// Dreamhost
-				$('a#dreamhost').on('click', function() {
-					ga('send', 'event', 'External Link', 'DreamHost', {'nonInteraction': 1});
-				});
-				// Open Left Slidebar
-				$('.sb-open-left, .sb-toggle-left').on('touchend click', function() {
-					ga('send', 'event', 'Function', 'Open Slidebar', 'Open Left Slidebar', {'nonInteraction': 1});
-				});
-				// Open Right Slidebar
-				$('.sb-open-right, .sb-toggle-right').on('touchend click', function() {
-					ga('send', 'event', 'Function', 'Open Slidebar', 'Open Right Slidebar', {'nonInteraction': 1});
-				});
-			});
-		}) (jQuery);*/
-	</script>
-	<!-- Prettify -->
-	
 	<!-- Smooth Page Scrolling -->
 	<script>
 		/*(function($) {
@@ -324,7 +257,6 @@
 			} );
 		} ) ( jQuery );*/
 	</script>
-
 </body>
 <script type="text/javascript">
 	$(function() {
@@ -335,5 +267,9 @@
 	        event.preventDefault();
 	    });
 	});
+
+	$('#nosotros').click(function(){
+    	$("#contenedor").load("nosotros");
+    });
 </script>
 </html>
