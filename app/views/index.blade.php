@@ -16,7 +16,15 @@
 {{ HTML::style('assets/css/style-2.css'); }}
 
 </script><style type="text/css"></style><style type="text/css"></style>
-
+<style type="text/css">
+	#img-footer{
+		float: left;
+		padding:4px;
+		width:40px;
+		background-color:rgba(255,255,255, .7);
+		border-radius: 100px;
+	}
+</style>
 <!-- Shims -->
 <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -166,38 +174,19 @@
 
 	<!--Pié de página-->
 	<footer>
-        <!--<div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li>Desarrollado y potenciado por</li><strong>Sistemas ISM</strong>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Intranet corp. ISM - 2015</span>
-                </div>
-                <div class="col-md-4" style="float:right;">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Términos de uso</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>-->
-        <div style="padding:20px;">
-            <!--<p>
-                Desarrollado y potenciado por Sistemas - ISM
-            </p>
-            <span class="pull-right">
-                <a href="http://localhost/ism-inet/public/">Copyright &copy; Intranet corp. ISM - 2015 · Todos los derechos reservados</a>.
-            </span>-->
-            <div class="col-lg-6">
-            	Desarrollado y potenciado por Sistemas - ISM
-            </div>
-            <div class="col-lg-6">
-                <a href="http://localhost/ism-inet/public/">Copyright &copy; Intranet corp. ISM - 2015 · Todos los derechos reservados</a>.            	
-            </div>
-        </div>
+		<div class="container">
+			<div class="row" style="padding:20px;">
+				<div class="col-sm-4">
+		        	<img id="img-footer" style="" src="assets/icons/logomain.png">					
+				</div>
+	            <div class="col-sm-4">
+	            	Desarrollado y potenciado por Sistemas - ISM
+	            </div>
+	            <div class="col-sm-4">
+	                <a href="http://localhost/intra-ism/">Copyright &copy; Intranet corp. ISM - 2015 · Todos los derechos reservados</a>.            	
+	            </div>
+	        </div>
+		</div>
     </footer>
 	
 	<!-- Scripts -->
@@ -227,11 +216,6 @@
 	{{ HTML::script('assets/js/calendar/gcal.js'); }}
 	{{ HTML::script('assets/js/calendar/lang-all.js'); }}
 
-	{{ HTML::script('assets/js/ellipsis/jquery.ellipsis.min.js'); }}
-
-	<script type="text/javascript">
-		$(".resu-new").ellipsis();
-	</script>
 	<!-- Smooth Page Scrolling -->
 	<script>
 		/*(function($) {
@@ -247,16 +231,6 @@
 			});
 		}) (jQuery);*/
 	</script>
-	<!-- Form Validation -->
-
-	<!-- Bisma -->
-	<script type="text/javascript">
-		/*( function( $ ) {
-			$( function() {
-				$( '#bisma' ).css( 'display', 'block' );
-			} );
-		} ) ( jQuery );*/
-	</script>
 </body>
 <script type="text/javascript">
 	$(function() {
@@ -268,7 +242,7 @@
 	    });
 	});
 
-	$('#nosotros').click(function(){
+	$('.page-scroll').click(function(){
     	$("#contenedor").load("nosotros");
     });
 </script>
