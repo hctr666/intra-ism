@@ -24,6 +24,13 @@
 		background-color:rgba(255,255,255, .7);
 		border-radius: 100px;
 	}
+
+	#contenedor{
+		border-top: dotted;
+		border-bottom: dotted;
+		border-color: #0e8e5f;
+		border-width: .17em;
+	}
 </style>
 <!-- Shims -->
 <!--[if lt IE 9]>
@@ -105,7 +112,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="./" title="Intranet ISM">Inicio</a></li>
 				<li><a href="#nosotros" id="we" title="Misión, Visión y valores ISM">Nosotros</a></li>
-				<li><a href="#noticias" id="news" title="Noticias destacadas y novedades">Noticias</a></li>
+				<li><a href="#noticias" id="news" title="Noticias destacadas y novedades">Servicios</a></li>
 				<!--li><a id="top-arrow" href="#">^</a></li-->
 			</ul>
 		</div>
@@ -119,7 +126,7 @@
 		<div class="container">
 						
 		</div>
-		<div id="contenedor" class="container" style="min-height:600px; border-width:1px; border-color:gray;">
+		<div id="contenedor" class="container" style="min-height:600px;">
 			@include('nosotros')
 		</div>
 		<!-- Site -->
@@ -215,6 +222,7 @@
 	{{ HTML::script('assets/js/calendar/fullcalendar.min.js'); }}
 	{{ HTML::script('assets/js/calendar/gcal.js'); }}
 	{{ HTML::script('assets/js/calendar/lang-all.js'); }}
+	{{ HTML::script('assets/js/loader/loadie.min.js'); }}
 
 	<!-- Smooth Page Scrolling -->
 	<script>
@@ -245,5 +253,8 @@
 	$('.page-scroll').click(function(){
     	$("#contenedor").load("nosotros");
     });
+
+    $('body').loadie();
+    $('#contenedor').loadie();
 </script>
 </html>

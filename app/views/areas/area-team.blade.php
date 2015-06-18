@@ -2,7 +2,7 @@
 {{ HTML::style('assets/css/nosotros.css'); }}
 <div class="col-lg-12 text-center">
     <br><br>
-    <h2 class="section-heading">El equipo de Sistemas</h2>   
+    <h2 class="section-heading">Equipo de { $area }</h2>   
 </div>
 <hr/>
  <div class="container marketing">

@@ -8,7 +8,7 @@
 <body>
 <div class="row div-shadow">
   <div class="titulo-sec" style="background-color:#0e8e5f; width:100%;">
-    <h2 style="padding:8px; color:white;">Lo úlltimo</h2>
+    <h2 style="padding:8px; color:white;">Lo último</h2>
   </div>    
   <div class="pic-container">
     <div class="list-wrpaaer" style="height:370px;">

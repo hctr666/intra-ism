@@ -54,11 +54,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::post('user/update/{id}', 'UserController@post_update');
 
 	//Route::get('selec-op/{area}', array( 'as' => 'opciones', 'uses' => 'SelectorController@get_area_index'));
-	Route::get('equipo', array('as' => 'equipo', 'uses' => 'EquipoAreaController@get_equipo_index'));
+	//Route::get('equipo', array('as' => 'equipo', 'uses' => 'EquipoAreaController@get_equipo_index'));
 	Route::get('nosotros', array('as' => 'nosotros', 'uses' => 'NosotrosController@get_index'));
-
-	if (Auth::user()) {
-
-	}
-
+	Route::get('archivos', array('as' => 'archivos', 'uses' => 'FilesAreaController@get_index'));
 });

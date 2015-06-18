@@ -20,7 +20,7 @@
 				@foreach($users as $user)
 				<tr>
 					<td>{{$user->id}}</td>
-					<td>{{$user->real_name}}</td>
+					<td>{{$user->display_name}}</td>
 					<td>{{$user->email}}</td>
 					<td>{{HTML::link('user/delete/'.$user->id, 'Borrar')}}</td>
 					<td>{{HTML::link('user/update/'.$user->id, 'Editar')}}</td>
