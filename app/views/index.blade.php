@@ -48,19 +48,19 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <!-- Favicons -->
-<link rel="icon" type="image/png" href="http://www.group-ism.com/wp-content/themes/ism/favicon.jpg">
-<link rel="icon" type="image/png" href="http://www.group-ism.com/wp-content/themes/ism/favicon.jpg" sizes="32x32">
-<link rel="icon" type="image/png" href="http://www.group-ism.com/wp-content/themes/ism/favicon.jpg" sizes="48x48">
-<link rel="icon" type="image/png" href="http://www.group-ism.com/wp-content/themes/ism/favicon.jpg" sizes="64x64">
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="32x32">
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="48x48">
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="64x64">
 
 <!-- Apple Touch Icons -->
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/152.png" sizes="120x120">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/120.png" sizes="152x152">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/76.png" sizes="76x76">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/114.png" sizes="114x114">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/57.png" sizes="57x57">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/144.png" sizes="144x144">
-<link rel="apple-touch-icon" href="http://plugins.adchsm.me/slidebars/images/icons/72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="120x120">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="152x152">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="76x76">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="114x114">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="57x57">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="144x144">
+<link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" sizes="72x72">
 	
 <!-- Startup Images -->
 <!-- iPhone 5, 5S, 5C -->

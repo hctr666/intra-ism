@@ -4,9 +4,11 @@
 		<div class="pic row">
 			{{ HTML::image("assets/img/GA.jpg"); }}
 		    <span class="pic-caption bottom-to-top">
-		    <div style="margin-top:12%;">
-	        	<a class="btn btn-def btn-files" name="ga" ><span class="btn-icon spn-files"></span>Explorar</a>
-		    </div>
+			    <div style="margin-top:12%;">
+		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
+			    	{{ HTML::link('documentos/ga', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
+			    	<!--<span class="btn-icon spn-files"></span>-->
+			    </div>
 		    </span>
 		    <div class="nom-area">
 				<p>G&A</p>
@@ -21,7 +23,9 @@
 		    {{ HTML::image("assets/img/silverlake.jpg"); }}
 		    <span class="pic-caption bottom-to-top">
 			    <div style="margin-top:12%;">
-		        	<a class="btn btn-def btn-files" name="sl" ><span class="btn-icon spn-files"></span>Explorar</a>
+		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
+			    	{{ HTML::link('documentos/sl', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
+			    	<!--<span class="btn-icon spn-files"></span>-->
 			    </div>
 		    </span>
 		    <div class="nom-area">
@@ -37,7 +41,9 @@
 		    {{ HTML::image("assets/img/cyncat.jpg"); }}
 		    <span class="pic-caption bottom-to-top">
 			    <div style="margin-top:12%;">
-		        	<a class="btn btn-def btn-files" name="cyncat" ><span class="btn-icon spn-files"></span>Explorar</a>
+		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
+			    	{{ HTML::link('documentos/ck', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
+			    	<!--<span class="btn-icon spn-files"></span>-->
 			    </div>
 		    </span>
 		    <div class="nom-area">
@@ -46,3 +52,9 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(".btn-files").click(function(e){
+		//$('#contenedor').load('archivos');
+		$("#contenedor")[0].scrollIntoView(true);
+	});
+</script>

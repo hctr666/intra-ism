@@ -4,9 +4,11 @@
 		<div class="pic row">
 			{{ HTML::image("assets/img/PTV.jpg"); }}
 		    <span class="pic-caption bottom-to-top">
-		    <div style="margin-top:12%;">
-	        	<a class="btn btn-def btn-files" name="ptv" ><span class="btn-icon spn-files"></span>Explorar</a>
-		    </div>
+			    <div style="margin-top:12%;">
+		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
+			    	{{ HTML::link('documentos/ptv', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
+			    	<!--<span class="btn-icon spn-files"></span>-->
+			    </div>
 		    </span>
 		    <div class="nom-area">
 				<p>PTV</p>
@@ -21,7 +23,9 @@
 		    {{ HTML::image("assets/img/THR.jpg"); }}
 		    <span class="pic-caption bottom-to-top">
 			    <div style="margin-top:12%;">
-		        	<a class="btn btn-def btn-files" name="thr" ><span class="btn-icon spn-files"></span>Explorar</a>
+		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
+			    	{{ HTML::link('documentos/thr', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
+			    	<!--<span class="btn-icon spn-files"></span>-->
 			    </div>
 		    </span>
 		    <div class="nom-area">

@@ -84,7 +84,7 @@
 		});
 		$(".btn-files").click(function(e){
 			//$('#contenedor').load('archivos');
-			$("#contenedor")[0].scrollIntoView(true);*/
+			$("#contenedor")[0].scrollIntoView(true);
 		});
 	});
 </script>

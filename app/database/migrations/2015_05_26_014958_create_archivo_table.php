@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArchivoTable extends Migration {
+class CreateDocumentoTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,17 @@ class CreateArchivoTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('archivo', function(Blueprint $table){
+		Schema::table('documento', function(Blueprint $table){
 			$table->create();
 			$table->increments('id');
-			$table->string('nom_file', 60);
+			$table->string('desc_doc', 60);
 			$table->string('url_file', 200);
+			$table->string('tipo_doc');
+			$table->integer('are');
+			$table->integer('id_emp');
+			$table->date('elaborado');
+			$table->date('aprobado');
+			$table->timestamps();
 		});
 	}
 

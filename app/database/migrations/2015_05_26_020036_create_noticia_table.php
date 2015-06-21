@@ -17,8 +17,9 @@ class CreateNoticiaTable extends Migration {
 			$table->increments('id');
 			$table->string('tit_new', 100);
 			$table->string('cont_new', 250);
+			$table->integer('user_id')->index();
 			$table->timestamps();
-		})
+		});
 	}
 
 	/**

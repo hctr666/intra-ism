@@ -57,4 +57,6 @@ Route::group(array('before' => 'auth'), function(){
 	//Route::get('equipo', array('as' => 'equipo', 'uses' => 'EquipoAreaController@get_equipo_index'));
 	Route::get('nosotros', array('as' => 'nosotros', 'uses' => 'NosotrosController@get_index'));
 	Route::get('archivos', array('as' => 'archivos', 'uses' => 'FilesAreaController@get_index'));
+	Route::get('documentos/{empresa}', 'ComercFilesController@get_index');
+	Route::post('documentos/{cod}/ul_1', 'ComercFilesController@store');
 });

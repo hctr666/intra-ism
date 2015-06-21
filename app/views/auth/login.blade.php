@@ -8,7 +8,12 @@
 	<meta name="description" content=""/>
 	<meta name="keywords" content="" />
 	<meta name="author" content="hctr"/>
-    <link rel="shortcut icon" href="favicon.png">
+	
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="32x32">
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="48x48">
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" sizes="64x64">
 	<title>Acceso al Sistema</title>
 	<!-- Bootstrap core CSS -->
 	{{ HTML::style('assets/css/bs/bootstrap.css'); }}
