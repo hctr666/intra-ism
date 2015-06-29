@@ -12,12 +12,13 @@ class CreateRolTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('rol', function(Blueprint $table){
+		//creado!
+		/*Schema::table('rol', function(Blueprint $table){
 			$table->create();
 			$table->increments('id_rol');
 			$table->string('desc_rol', 35);
 			$table->timestamps();
-		});
+		});*/
 	}
 
 	/**

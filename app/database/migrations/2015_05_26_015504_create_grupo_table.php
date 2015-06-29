@@ -12,13 +12,13 @@ class CreateGrupoTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('grupo', function(Blueprint $table){
+		/*Schema::table('grupo', function(Blueprint $table){
 			$table->create();
 			$table->increments('id');
 			$table->string('desc_grupo');
 			$table->string('obs_grupo');
 			$table->timestamps();
-		});
+		});*/
 	}
 
 	/**

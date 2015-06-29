@@ -26,14 +26,21 @@ class AuthController extends BaseController
 			'password' => Input::get('pass')
 		);
 
+		$credentials_usrn = array(
+			'username' => Input::get('email'),
+			'password' => Input::get('pass')
+		);
+
 		if (Auth::attempt($credentials, Input::get('rememberme', 0))) 
 		{
 			#return "El usuario ha sido identificado correctamente.";
 			#return Redirect::to('user');
 			return Redirect::to('/');
-		}
-		else
-		{
+
+		} elseif(Auth::attempt($credentials_usrn, Input::get('rememberme', 0))){
+			return Redirect::to('/');
+
+		} else {
 			#return "datos incorrectos";
 	        return Redirect::to('login')
                     ->with('mensaje_error', 'Tus datos son incorrectos')
@@ -47,4 +54,6 @@ class AuthController extends BaseController
 		return Redirect::to('login')
 			->with('mensaje_info', 'Tu sesión ha sido cerrada.');
 	}
+
+	
 }

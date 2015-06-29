@@ -51,7 +51,7 @@
 		    		@endif
 
 		    		{{ Form::open(array('url' => '/login')) }}
-						{{ Form::text('email', Input::old('email'), array('placeholder'=>'Email', 'required' => 'required', 'autofocus' => 'autofocus')) }}
+						{{ Form::text('email', Input::old('email'), array('placeholder'=>'Email o nombre de usuario', 'required' => 'required', 'autofocus' => 'autofocus')) }}
 						{{ Form::password('pass', array('placeholder' => 'Contraseña', 'required' => 'required')) }}
 						<label class="checkbox check">
 							{{ Form::checkbox('rememberme', true) }}Recordar Contraseña

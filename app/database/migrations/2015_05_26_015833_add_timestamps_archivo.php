@@ -12,9 +12,9 @@ class AddTimestampsArchivo extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('archivo', function(Blueprint $table){
+		/*Schema::table('archivo', function(Blueprint $table){
 			$table->timestamps();
-		});
+		});*/
 	}
 
 	/**

@@ -23,11 +23,22 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reglamentos<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Reglamento Interno de Trabajo</a></li>
+                            <li><a href="#">Reglamento Seguridad y Salud</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
                     <li><a href="#">FODA</a></li>
-                    <li><a href="#">RIT</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li><a href="#">Políticas</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Procedimientos</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
