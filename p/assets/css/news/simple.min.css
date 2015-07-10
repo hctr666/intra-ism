@@ -6,8 +6,11 @@
  */
 
 .wrapper {
-  width: 1000px;
   margin: auto
+}
+
+div.list-wrpaaer{
+	height: 80px;
 }
 
 .wid-f { width: 100% }
@@ -64,13 +67,15 @@ background-color:#0f3fa1
 
 .tibar-simple { background-color: #e95546 }
 
+.list-aggregate { width: 100%; margin-bottom: 10px;}
+
 .list-aggregate li a { color: #0e8e5f; font-weight: bold; text-align: center;}
 
 .list-aggregate li img { position: static; margin-top: 4px; width: 100px;}
 
 .list-aggregate li a:hover { color: #000 }
 
-.list-aggregate li { margin:10px; margin-top: 10px; border-bottom: solid; border-color: #0e8e5f; border-width: .08em;}
+.list-aggregate li { margin:10px; margin-top: 10px; border-bottom: dotted; border-color: #0e8e5f; border-width: .08em; height: 100px;}
 
 .list-aggregate li p { color: #000; padding:0 10px; text-align: justify; font-size: 0.8em;}
 

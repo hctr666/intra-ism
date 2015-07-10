@@ -5,7 +5,9 @@
 <link rel="stylesheet" type="text/css" href="assets/css/nosotros.css">
 </head>
 <style type="text/css">
-	.nos-parrf {
+	p.nos-parrf, li.nos-parrf {
+	    font-family: 'Open Sans', sans-serif;
+	    font-style: italic;
 	    font-size: 14px;
 	    line-height: 1.75;
 	    color: rgba(0,0,0,.6);
@@ -44,11 +46,11 @@
 			<div class="col-md-4 text-center">
 				<h4>Valores</h4>
 				<ul>
-					<li>Liderazgo con cercania</li>
-					<li>Innovación y versatilidad</li>
-					<li>Excelencia</li>
-					<li>Integridad</li>
-					<li>Austeridad y Pertenencia</li>	
+					<li class="nos-parrf">Liderazgo con cercania</li>
+					<li class="nos-parrf">Innovación y versatilidad</li>
+					<li class="nos-parrf">Excelencia</li>
+					<li class="nos-parrf">Integridad</li>
+					<li class="nos-parrf">Austeridad y Pertenencia</li>	
 				</ul>
 			</div>
 		</div>

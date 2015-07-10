@@ -22,6 +22,8 @@
 {{ HTML::style('assets/css/bs/3.1/bootstrap-theme.min.css'); }}
 {{ HTML::style('assets/css/bs/fileinput.min.css'); }}
 {{ HTML::style('assets/css/bs/bootstrap_dtp.min.css'); }}
+{{ HTML::style('assets/css/bs/datatables.bstrap.css'); }}
+{{ HTML::style('assets/css/tables/datatables.resp.css'); }}
 
 <style type="text/css">
 	.bs-example{
@@ -46,6 +48,38 @@
         font-size: 0.9em;
     }
 
+    table.dataTable th,
+    table.dataTable td {
+        font-size: 0.85em;
+    }
+
+    .div-shadow {
+        -webkit-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
+        -moz-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
+        box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
+    }
+
+    table{
+        margin:25px;
+    }
+
+    .tables-container{
+        margin: 15px;
+    }
+
+    .wrp-table{
+        margin: 25px;
+    }
+
+    .col-sm-12{
+        padding: 0px;
+    }
+
+    table{
+        margin-left: 5px;
+        margin-right: 16px;
+    }
+
 </style>
 </head>
 <body>
@@ -62,6 +96,9 @@
 {{ HTML::script('assets/js/bs/collapse.js'); }}
 {{ HTML::script('assets/js/bs/transition.js'); }}
 {{ HTML::script('assets/js/bs/bootstrap_dtp.min.js'); }}
+{{ HTML::script('assets/js/tables/datatables.min.js'); }}
+{{ HTML::script('assets/js/tables/datatables.responsive.min.js'); }}
+{{ HTML::script('assets/js/bs/datatables.bstrap.js'); }}
 
 <script>
 
@@ -76,6 +113,10 @@
         $('.date').datetimepicker({
             format: 'YYYY-MM-DD'
         });
+    });
+
+    $(document).ready(function() {
+        $('.tbldoc').DataTable();
     });
 
     //verificar si ningun tipo se ha seleccionado
@@ -164,13 +205,53 @@
             if ($('#sel-tipo-doc option:selected').val() == '7') {
                 $("#_co").hide();
             };
-
         });
-
+    });
         //prueba de valor de options
         /*$('#sel-orign').on('change', function(){
             alert($(this).val());
         });*/
 
+    /*
+     *div navigation
+     */
+    $(document).ready(function () {
+        $(document).on("scroll", onScroll);
+        
+        //smoothscroll
+        $('a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            $(document).off("scroll");
+            
+            $('a').each(function () {
+                $(this).removeClass('active');
+            })
+            $(this).addClass('active');
+          
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top-90
+            }, 500, 'swing', function () {
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+            });
+        });
     });
+
+    function onScroll(event){
+        var scrollPos = $(document).scrollTop();
+        $('#bs-example-navbar-collapse-1 a').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('#bs-example-navbar-collapse-1 ul li a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+
 </script>

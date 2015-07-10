@@ -7,7 +7,7 @@
 <title>ISM Intranet Corporativa</title>
 <meta name="description" content="Intranet corporativa ISM &copy;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <!-- Stylesheets -->
 <!--{{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic'); }}-->
 {{ HTML::style('assets/css/bs/bootstrap.min.css'); }}
@@ -86,115 +86,18 @@
 {{ HTML::style('assets/css/slide-bars/prettify.css'); }}
 
 <body id="top" data-twttr-rendered="true">
-	<!-- Navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
-		<!-- Left Control -->
-		<div class="sb-toggle-left navbar-left">
-			<div class="navicon-line"></div>
-			<div class="navicon-line"></div>
-			<div class="navicon-line"></div>
-		</div><!-- /.sb-control-left -->
-		
-		<!-- Right Control -->
-		<div class="sb-toggle-right navbar-right">
-			<div class="navicon-line"></div>
-			<div class="navicon-line"></div>
-			<div class="navicon-line"></div>
-		</div><!-- /.sb-control-right -->
-		
-		<div class="container">
-			<!-- Logo -->
-			<div id="logo" class="navbar-left">
-				<a href="http://localhost/ism-inet/public/home"><img src="assets/img/logo-small-2.png" alt="ISM" width="77" height="40"></a>
-			</div><!-- /#logo -->
-			
-			<!-- Menu -->
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./" title="Intranet ISM">Inicio</a></li>
-				<li><a href="#nosotros" id="we" title="Misión, Visión y valores ISM">Nosotros</a></li>
-				<li><a href="#noticias" id="news" title="Noticias destacadas y novedades">Servicios</a></li>
-				<!--li><a id="top-arrow" href="#">^</a></li-->
-			</ul>
-		</div>
-	</nav>
-	
-	<!-- Site -->
-	<div id="sb-site">
-		<div class="img-slider" style="height:auto">
-			@include('slideshow')
-		</div>
-		<div class="container">
-						
-		</div>
-		<div id="contenedor" class="container" style="min-height:600px;">
-			@include('nosotros')
-		</div>
-		<!-- Site -->
-		<div id="noticias" class="container">
-			<div style="height:65px; margin-bottom:25px;"></div>		
-			<div class="col-lg-8 col-md-8">
-				@include('area-grids')
-			</div>
-			<div class="col-lg-4 col-md-4">
-				<div>
-					@include('last-news')
-				</div>
-				<div style="margin-top:15px;">
-					@include('agenda-views')	
-				</div>
-			</div>
-		</div><!-- /.container -->
-	</div><!-- /#sb-site -->
-		
-	<!-- Slidebars -->
-	<div class="sb-slidebar sb-left">
-		<nav>
-			<ul class="sb-menu">
-				<li><img src="assets/img/logo-small-2.png" width="77" height="40"></li>
-				<li class="sb-close"><a class="page-scroll" href="#nosotros">Nosotros</a></li>
-				<li class="sb-close"><a href="#apps">Apps</a></li>
-				<li class="sb-close"><a href="#noticias">Noticias</a></li>
-				<li class="sb-close"><a href="#agenda">Agenda ISM</a></li>
-				<li class="sb-close"><a href="#encuestas">Encuestas</a></li>
-				<li class="sb-close"><a href="http://localhost/laravel-blog/public">El Blog</a></li>
-				<li class="sb-close"><a href="#ayuda">Ayuda</a></li>
-				<li class="sb-close"><small>Intranet co. &copy; ISM - 2015</small></li>
-			</ul>
-		</nav>
-	</div>
-	<!-- /.sb-left -->
-	
-	<div class="sb-slidebar sb-right sb-style-overlay" style="margin-right: -270px;">
-		<aside id="about-me">
-			<img class="img-circle img-responsive img-me" width="150" height="150" src="assets/img/foto-perfil.png" alt="Profile Picture">
-			<h3>{{ Auth::user()->display_name }}</h3>
-			<p>Web developer</p>
-			<p><strong>Sistemas</strong></p>
-			<ul class="list-unstyled">
-				<li class="sb-close"><a href="#">Mi perfil</a></li>
-				<li class="sb-close">{{ HTML::link('/logout', 'Cerrar sesión.') }}</li>
-			</ul>
-		</aside>
-	</div>
-	<div>@include('modals.opc-area')</div>
-	<!-- /.sb-right -->
+	<!-- Header -->
+	@include('home.main-header')
 
-	<!--Pié de página-->
-	<footer>
-		<div class="container">
-			<div class="row" style="padding:20px;">
-				<div class="col-sm-4">
-		        	<img id="img-footer" style="" src="assets/icons/logomain.png">					
-				</div>
-	            <div class="col-sm-4">
-	            	Desarrollado y potenciado por Sistemas - ISM
-	            </div>
-	            <div class="col-sm-4">
-	                <a href="http://localhost/intra-ism/">Copyright &copy; Intranet corp. ISM - 2015 · Todos los derechos reservados</a>.            	
-	            </div>
-	        </div>
-		</div>
-    </footer>
+	<!-- Contenido principal -->
+	@include('home.main-content-wrapper')
+
+	<!-- Menu deslizables ocultos -->
+	@include('home.left-sb')
+	@include('home.right-sb')
+
+	<!--Footer-->
+	@include('home.main-footer')
 	
 	<!-- Scripts -->
 	<!-- jQuery -->
@@ -202,8 +105,15 @@
 
 	<!-- Bootstrap -->
 	{{ HTML::script('assets/js/bs/bootstrap.min.js'); }}
+	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'); }}
+	{{ HTML::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'); }}
+	<script type="text/javascript">
+	    $('.carousel').carousel({
+	        interval: 3000
+	    })
+	</script>
 
-	
+
 	<!-- Slidebars -->
 	{{ HTML::script('assets/js/slide-bars/slidebars.min.js'); }}
 	<script>
@@ -215,46 +125,60 @@
 		}) (jQuery);
 	</script>
 
-	<!--slideshow-->
+	<!--scripts slideshow-->
 	{{ HTML::script('assets/js/slide-show/responsiveslides.min.js'); }}
-	
+
 	<!--Plugins para la agenda-->
+	<script type="text/javascript" src='assets/js/moment/moment.min.js'></script>
 	{{ HTML::script('assets/js/calendar/fullcalendar.min.js'); }}
 	{{ HTML::script('assets/js/calendar/gcal.js'); }}
 	{{ HTML::script('assets/js/calendar/lang-all.js'); }}
 	{{ HTML::script('assets/js/loader/loadie.min.js'); }}
 
-	<!-- Smooth Page Scrolling -->
-	<script>
-		/*(function($) {
-			$(document).ready(function() {
-				$('a[href^="#"]').on('touchend click', function(e) {
-					e.preventDefault();
-					var id = $(this).attr("href");
-					var offset = 70;
-					var target = $(id).offset().top - offset;
-					
-					$('html, body').animate({scrollTop:target}, 500);
-				});
-			});
-		}) (jQuery);*/
-	</script>
 </body>
 <script type="text/javascript">
-	$(function() {
-	    $('a.page-scroll').bind('click', function(event) {
-	        var $anchor = $(this);
-	        $('#sb-site').stop().animate({
-	            scrollTop: $($anchor.attr('href')).offset().top }, 1500, 'easeInOutExpo');
-	        event.preventDefault();
-	    });
-	});
-
-	$('.page-scroll').click(function(){
-    	$("#contenedor").load("nosotros");
+    $(document).ready(function () {
+        $(document).on("scroll", onScroll);
+        
+        //smoothscroll
+        $('a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            $(document).off("scroll");
+            
+            $('a').each(function () {
+                $(this).removeClass('active');
+            })
+            $(this).addClass('active');
+          
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top-90
+            }, 500, 'swing', function () {
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+            });
+        });
     });
 
-    $('body').loadie();
-    $('#contenedor').loadie();
+    function onScroll(event){
+        var scrollPos = $(document).scrollTop();
+        $('#main-header a').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('#main-header ul li a').removeClass("active");
+                currLink.addClass("active");
+            } else {
+                currLink.removeClass("active");
+            }
+        });
+    }
+
+    function makeHome() {
+    	$("#sb-site").load("home");
+    }
+
 </script>
 </html>

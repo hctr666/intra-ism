@@ -1,9 +1,12 @@
 h2, h3, h4 {
-    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
     font-weight: 700;
 }
 
 h2.section-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 40px;
@@ -14,14 +17,16 @@ h2.section-heading {
 
 h3.section-subheading {
     margin-bottom: 75px;
-    text-transform: none;
-    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
     font-style: italic;
+    font-size: 16px;
     font-weight: 400;
 }
 
 .nos-parrf h4 {
 	margin-top: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
 	font-weight: bold;
 }
 

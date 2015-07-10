@@ -6,7 +6,7 @@
 class DocumentoController extends BaseController
 {
 	
-	public function post_create(){
+/*	public function post_create(){
 		$documento = new Documento;
 		$documento->desc_doc = $desc_doc;
 		$documento->url_file = $url_doc.$filename;
@@ -21,42 +21,122 @@ class DocumentoController extends BaseController
 		$documento->save();
 		return Redirect::to('documentos/' . $cod)
 					->with('msj-upload-ok', 'Documento cargado correctamente :)');
-	}
+	}*/
 
 	public function get_index_comerc($empresa){
 
-		#$area = Area::all(['id', 'desc_area']);
-		$area = Area::orderBY('desc_area')->get(['id', 'desc_area']);
+		$area = Area::orderBy('desc_area')->get(['id', 'desc_area']);
 		$nomemp = null;
 		$img_url = null;
+		$id_emp = null;
+		$res_org = null;
+		$res_mof = null;
+		$res_rit = null;
+		$res_rsst = null;
+		$res_foda = null;
+		$res_pol = null;
+		$res_proc = null;
+		$res_rpc = null;
+		$res_modm = null;
+
 		switch ($empresa) {
 			case 'ga':
-				$nomemp = "G & A";
+				$document = new Documento;
+				$nomemp = "G&A";
 				$img_url = "../assets/img/GA.jpg";
+				$id_emp = 4;
+				$res_org = $document->selec_doc($id_emp, 'organigrama');
+				$res_mof = $document->selec_doc($id_emp, 'MOF');
+				$res_rit = $document->selec_doc($id_emp, 'RIT');
+				$res_rsst = $document->selec_doc($id_emp, 'RSST');
+				$res_foda = $document->selec_doc($id_emp, 'FODA');
+				$res_pol = $document->selec_doc($id_emp, 'politica');
+				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');
 				break;
 			
 			case 'sl':
+				$document = new Documento;
 				$nomemp = "SilverLake";
 				$img_url = "../assets/img/SILVERLAKE.jpg";
+				$id_emp = 5;
+				$res_org = $document->selec_doc($id_emp, 'organigrama');
+				$res_mof = $document->selec_doc($id_emp, 'MOF');
+				$res_rit = $document->selec_doc($id_emp, 'RIT');
+				$res_rsst = $document->selec_doc($id_emp, 'RSST');
+				$res_foda = $document->selec_doc($id_emp, 'FODA');
+				$res_pol = $document->selec_doc($id_emp, 'politica');
+				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');
 				break;
 			
 			case 'ck':
+				$document = new Documento;
 				$nomemp = "Cyncat";
 				$img_url = "../assets/img/cyncat.jpg";
+				$id_emp = 3;
+				$res_org = $document->selec_doc($id_emp, 'organigrama');
+				$res_mof = $document->selec_doc($id_emp, 'MOF');
+				$res_rit = $document->selec_doc($id_emp, 'RIT');
+				$res_rsst = $document->selec_doc($id_emp, 'RSST');
+				$res_foda = $document->selec_doc($id_emp, 'FODA');
+				$res_pol = $document->selec_doc($id_emp, 'politica');
+				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');
 				break;
 
 			case 'ptv':
+				$document = new Documento;
 				$nomemp = "PTV Business";
 				$img_url = "../assets/img/PTV.jpg";
+				$id_emp = 7;
+				$res_org = $document->selec_doc($id_emp, 'organigrama');
+				$res_mof = $document->selec_doc($id_emp, 'MOF');
+				$res_rit = $document->selec_doc($id_emp, 'RIT');
+				$res_rsst = $document->selec_doc($id_emp, 'RSST');
+				$res_foda = $document->selec_doc($id_emp, 'FODA');
+				$res_pol = $document->selec_doc($id_emp, 'politica');
+				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');
 				break;
 
 			case 'thr':
+				$document = new Documento;
 				$nomemp = "THR";
 				$img_url = "../assets/img/THR.jpg";
+				$id_emp = 6;
+				$res_org = $document->selec_doc($id_emp, 'organigrama');
+				$res_mof = $document->selec_doc($id_emp, 'MOF');
+				$res_rit = $document->selec_doc($id_emp, 'RIT');
+				$res_rsst = $document->selec_doc($id_emp, 'RSST');
+				$res_foda = $document->selec_doc($id_emp, 'FODA');
+				$res_pol = $document->selec_doc($id_emp, 'politica');
+				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');
 				break;
 		}
 
-		return View::make("contenido.listadocs.listadocs-comerc.listadocs-comerc", array('empresa' => $nomemp, 'cod' => $empresa, 'url_logo' => $img_url, 'orign' => $area));
+		return View::make("contenido.listadocs.listadocs-comerc.listadocs-comerc", 
+			array('empresa' => $nomemp, 
+				  'cod' => $empresa, 
+				  'url_logo' => $img_url, 
+				  'orign' => $area,
+				  'res_org' => $res_org,
+				  'res_mof' => $res_mof,
+				  'res_rit' => $res_rit,
+				  'res_rsst' => $res_rsst,
+				  'res_foda' => $res_foda,
+				  'res_pol' => $res_pol,
+				  'res_proc' => $res_proc,
+				  'res_rpc' => $res_rpc,
+				  'res_modm' => $res_modm
+				 )
+			);
 	}
 
 	public function store_comerc($cod){		
@@ -87,7 +167,7 @@ class DocumentoController extends BaseController
 						$url_destino = $arr[0];
 						$filename = $arr[1];
 
-						$desc_doc = $filename;//nombre par almacenar en la bd
+						$desc_doc = $filename."-G&A";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
 						$filename = $filename."_gya_".Time::fecha_hoy().".pdf";
@@ -112,7 +192,7 @@ class DocumentoController extends BaseController
 						$url_destino = $arr[0];
 						$filename = $arr[1];
 
-						$desc_doc = $filename;//nombre par almacenar en la bd
+						$desc_doc = $filename."-Slake";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
 						$filename = $filename."_slake_".Time::fecha_hoy().".pdf";
@@ -138,10 +218,10 @@ class DocumentoController extends BaseController
 						$url_destino = $arr[0];
 						$filename = $arr[1];
 
-						$desc_doc = $filename;//nombre par almacenar en la bd
+						$desc_doc = $filename."-Cynkat";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
-						$filename = $filename."_cyncat_".Time::fecha_hoy().".pdf";
+						$filename = $filename."_cynkat_".Time::fecha_hoy().".pdf";
 
 						//$url_destino = public_path()."/docs/GYA/";
 						if (!file_exists($url_destino.$filename)) {
@@ -164,7 +244,7 @@ class DocumentoController extends BaseController
 						$url_destino = $arr[0];
 						$filename = $arr[1];
 
-						$desc_doc = $filename;//nombre par almacenar en la bd
+						$desc_doc = $filename."-PTV";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
 						$filename = $filename."_ptv_".Time::fecha_hoy().".pdf";
@@ -190,7 +270,7 @@ class DocumentoController extends BaseController
 						$url_destino = $arr[0];
 						$filename = $arr[1];
 
-						$desc_doc = $filename;//nombre par almacenar en la bd
+						$desc_doc = $filename."-THR";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
 						$filename = $filename."_thr_".Time::fecha_hoy().".pdf";
@@ -208,7 +288,7 @@ class DocumentoController extends BaseController
 				$url_doc = str_replace("c:/xampp/htdocs", "localhost", $url_destino);
 
 				$documento = new Documento;
-				$documento->desc_doc = $desc_doc.strtoupper($cod);
+				$documento->desc_doc = $desc_doc;
 				$documento->url_file = $url_doc.$filename;
 				$documento->tipo_doc = $this->getNomTipo($tipo);
 				$documento->area_id = Input::get('orign-de');
@@ -287,7 +367,7 @@ class DocumentoController extends BaseController
 				} else {
 					$url_destino = $url_destino . "/POLITICA/";
 				}
-				$filename = "Política";
+				$filename = "Politica";
 				$result = $this->docSegunArea($filename, $tipo_d, $url_destino);
 				$arr = explode("|", $result);
 				$url_destino = $arr[0];
@@ -328,12 +408,22 @@ class DocumentoController extends BaseController
 				}
 				$filename = "RSST";
 				break;
+
+			case '8':
+				if (!file_exists($url_destino."/RPC")) {
+					mkdir($url_destino."/RPC", 0777);					
+					$url_destino = $url_destino . "/RPC/";	
+				} else {
+					$url_destino = $url_destino . "/RPC/";
+				}
+				$filename = "RPC";
+				break;
 		}
 		return $url_destino."|".$filename;
 	}
 
 	public function docSegunArea($file_name, $area, $url_destino){
-		$nom = Input::get("txtnom");
+		$nom = Input::get("nompol");
 		$nom = str_replace(" ", "-", $nom);
 		switch ($area) {
 			case '0':

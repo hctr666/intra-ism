@@ -35,7 +35,7 @@ class AuthController extends BaseController
 		{
 			#return "El usuario ha sido identificado correctamente.";
 			#return Redirect::to('user');
-			return Redirect::to('/');
+			return Redirect::to('/')->with('home', '1');
 
 		} elseif(Auth::attempt($credentials_usrn, Input::get('rememberme', 0))){
 			return Redirect::to('/');

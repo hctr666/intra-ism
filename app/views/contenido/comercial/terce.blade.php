@@ -1,36 +1,34 @@
-<div class="col-md-6 col-lg-4 col-sm-4 col-xs-12">
-	<div class="pic-container">
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
+	<div class="ih-item circle effect1">
+	<a href="documentos/ptv" target="_blank">
 		<!--Effect: Bottom to Top -->
-		<div class="pic row">
+		<div class="spinner"></div>
+		<div class="img">
 			{{ HTML::image("assets/img/PTV.jpg"); }}
-		    <span class="pic-caption bottom-to-top">
-			    <div style="margin-top:12%;">
-		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
-			    	{{ HTML::link('documentos/ptv', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
-			    	<!--<span class="btn-icon spn-files"></span>-->
-			    </div>
-		    </span>
-		    <div class="nom-area">
-				<p>PTV</p>
+		</div>
+		<div class="info">
+			<div class="info-back">
+				<h4>Documentos de</h4>	
+				<h3 class="tit-subt">PTV</h3>	
 			</div>
 		</div>
+	</a>
 	</div>
 </div>
-<div class="col-md-6 col-lg-4 col-sm-4 col-xs-12">
-	<div class="pic-container">
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
+	<div class="ih-item circle effect1">
+	<a href="documentos/ptv" target="_blank">
 		<!--Effect: Bottom to Top -->
-		<div class="pic">
-		    {{ HTML::image("assets/img/THR.jpg"); }}
-		    <span class="pic-caption bottom-to-top">
-			    <div style="margin-top:12%;">
-		        	<!--<a href="" class="btn btn-def btn-files" name="ga">Explorar</a>-->
-			    	{{ HTML::link('documentos/thr', 'Explorar', array('class'=>'btn btn-def btn-files', 'target'=>'_blank')) }}
-			    	<!--<span class="btn-icon spn-files"></span>-->
-			    </div>
-		    </span>
-		    <div class="nom-area">
-				<p>THR</p>
+		<div class="spinner"></div>
+		<div class="img">
+			{{ HTML::image("assets/img/THR.jpg"); }}
+		</div>
+		<div class="info">
+			<div class="info-back">
+				<h4>Documentos de</h4>	
+				<h3 class="tit-subt">THR</h3>	
 			</div>
 		</div>
+	</a>
 	</div>
 </div>

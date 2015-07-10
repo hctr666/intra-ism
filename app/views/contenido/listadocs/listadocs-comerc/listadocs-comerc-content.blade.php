@@ -1,5 +1,6 @@
 <!--{{ HTML::style('assets/css/bs/3.3.4/bootstrap.min.css'); }}-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
 <style type="text/css">
 	form, h3{
 		margin: 20px;
@@ -20,27 +21,27 @@
 @endif
 
 @if( User::isAdmin() )
-<h3><strong>Cargar Documento</strong></h3>	
+<h3><strong>Subir Documento</strong></h3>	
 	<form method="POST" enctype="multipart/form-data" action="{{ url('documentos/'.$cod.'/ul_1'); }}">
         <div class="form-group">
 	   		<label for="sel-tipo-doc">Tipo documento:</label>
-			{{ Form::select('tipo-doc', ['Seleccionar...', 'FODA', 'MOF', 'Organigrama', 'Política', 'Procedimiento', 'RIT', 'RSST'], null, ['class'=>'form-control', 'id'=>'sel-tipo-doc']) }}
+			{{ Form::select('tipo-doc', ['Seleccionar...', 'FODA', 'MOF', 'Organigrama', 'Política', 'Procedimiento', 'RIT', 'RSST', 'fact. RPC', 'fact. Módem'], null, ['class'=>'form-control', 'id'=>'sel-tipo-doc']) }}
 		</div>
 
 		<!--selects ocultos-->
-		<div id="_nom-poli" class="form-group">
+		<div id="_nom-poli" class="form-group" style="display:none;">
 	   		<!--<label for="txt-poli">Nombre Politica:</label>-->
-	   		<input type="text" name="txtnom" placeholder="" class="form-control" id="txtnom" >
+	   		<input type="text" name="nompol" placeholder="" class="form-control" id="txtnom" >
 		</div>
-		<div id="_poli" class="form-group">
+		<div id="_poli" class="form-group" style="display:none;">
 	   		<label for="sel-tipo-pol">Politica de:</label>
 			{{ Form::select('pol-de', ['Administración', 'Almacén', 'Caja', 'Contabilidad', 'Ventas'], null, ['class'=>'form-control', 'id'=>'sel-tipo-pol']) }}			
 		</div>
-		<div id="_proc" class="form-group">
+		<div id="_proc" class="form-group" style="display:none;">
 	   		<label for="sel-tipo-foda">Procedimiento de:</label>
 			{{ Form::select('proc-de', ['Administración', 'Almacén', 'Caja', 'Contabilidad', 'Ventas'], null, ['class'=>'form-control', 'id'=>'sel-tipo-proc']) }}
 		</div>
-		<div id="_co" class="form-group">
+		<div id="_co" class="form-group" style="display:none;">
 	   		<label for="sel-co">Centro Operativo:</label>
 	   		@if( $cod == 'ga' )
 			{{ Form::select('c-op', ['Cañete', 'Casma', 'Chimbote', 'Chincha', 'Huacho', 'Huaral', 'Huaraz', 'Ica', 'Mala', 'Nazca', 'San Juan de Lurigancho'], null, ['class'=>'form-control', 'id'=>'sel-co']) }}
@@ -50,7 +51,7 @@
 			{{ Form::select('c-op', ['Arequipa', 'Juliaca'], null, ['class'=>'form-control', 'id'=>'sel-co']) }}			
 			@endif
 		</div>
-		<div id="_foda" class="form-group">
+		<div id="_foda" class="form-group" style="display:none;">
 	   		<label for="sel-tipo-foda">FODA de:</label>
 			{{ Form::select('foda-de', ['Administración', 'Almacén', 'Caja', 'Contabilidad', 'Ventas', 'Superv. Ventas', 'Jefe Ventas', 'Jefe Zonal', 'Ejecutivo Ventas'], null, ['class'=>'form-control', 'id'=>'sel-tipo-foda']) }}
 		</div>
@@ -61,7 +62,7 @@
 			{{ Form::select('origen-de', [$orign], null, ['class'=>'form-control', 'id'=>'sel-origen']) }}
 		</div>-->
 
-		<div class="form-group">
+		<div class="form-group" style="display:none;">
 	   		<label for="sel-origen">Origen documento:</label>  		
   			<select class="form-control" name="orign-de" id="sel-orign">
     		@foreach($orign as $a)
@@ -93,3 +94,4 @@
 	</form>
 </div>
 @endif
+@include('contenido.listadocs.listadocs-comerc.listadocs-comerc-tables')

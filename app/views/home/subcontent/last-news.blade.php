@@ -8,56 +8,41 @@
 <body>
 <div class="row div-shadow">
   <div class="titulo-sec" style="background-color:#0e8e5f; width:100%;">
-    <h2 style="padding:8px; color:white;">Lo último</h2>
+    <h2 style="padding:3px;"></h2>
   </div>    
   <div class="pic-container">
-    <div class="list-wrpaaer" style="height:370px;">
+    <div class="list-wrpaaer" >
        <ul class="list-aggregate" id="marquee-vertical">
          <li>
           <div class="row">
-              <img class="col-lg-3 col-md-3 col-xs-3" src="assets/icons/logomain.png">
             <div>
               <a href="">Breaking News 1</a>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
-              </p>
               <button class="btn btn-xs btn-info">Leer más</button>              
+              </p>
             </div>              
           </div>
          </li>
          <li>
           <div class="row">
-              <img class="col-lg-3 col-md-3 col-xs-3" src="assets/icons/logomain.png">
             <div>
               <a href="">Breaking News 2</a>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
-              </p>
               <button class="btn btn-xs btn-info">Leer más</button>               
+              </p>
             </div>              
           </div>
          </li>
          <li>
           <div class="row">
-              <img class="col-lg-3 col-md-3 col-xs-3" src="assets/icons/logomain.png">
             <div>
               <a href="">Breaking News 3</a>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
-              </p>
               <button class="btn btn-xs btn-info">Leer más</button>               
-            </div>              
-          </div>
-         </li>
-         <li>
-          <div class="row">
-              <img class="col-lg-3 col-md-3 col-xs-3" src="assets/icons/logomain.png">
-            <div>
-              <a href="">Breaking News 4</a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
               </p>
-              <button class="btn btn-xs btn-info">Leer más</button>               
             </div>              
           </div>
          </li>

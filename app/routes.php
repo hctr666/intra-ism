@@ -58,7 +58,8 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('archivos', array('as' => 'archivos', 'uses' => 'FilesAreaController@get_index'));
 	Route::get('documentos/{empresa}', 'DocumentoController@get_index_comerc');
 	Route::post('documentos/{cod}/ul_1', 'DocumentoController@store_comerc');
-	Route::post('documentos/{cod}/ul_1/s_d', 'DocumentoController@post_create');
+	Route::get('agenda', "AgendaController@index");
+	//Route::post('documentos/{cod}/ul_1/s_d', 'DocumentoController@post_create');
 	/*Route::get('hoy', function(){
 		return Time::fecha_hoy();
 	});*/
