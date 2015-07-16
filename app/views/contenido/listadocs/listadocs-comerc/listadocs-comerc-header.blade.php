@@ -13,6 +13,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+                @if( $extra == 1 )
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Estructura Organizacional <b class="caret"></b></a>
@@ -40,6 +41,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#proc">Procedimientos</a></li>
                 </ul>
+                @endif
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Facturas<b class="caret"></b></a>

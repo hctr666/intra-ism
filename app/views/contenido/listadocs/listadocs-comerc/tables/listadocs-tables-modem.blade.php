@@ -12,14 +12,14 @@
 					<th>ID</th>
 					<th>Descripción</th>
 					<th>Visualizar</th>
-					<th>Elaborado por</th>
+					<th>Mes_factura</th>
+					<th>Año_factura</th>
 					<th>Subido por</th>
-					<th>Versión</th>
 					<th>Fecha carga</th>
 				</tr>
 			</thead>
 			<tbody>
-			@foreach($res_rit as $row)
+			@foreach($res_modm as $row)
 				<tr>
 					<td>{{ $row->id }}</td>
 					<td>{{ $row->desc_doc }}</td>
@@ -28,9 +28,9 @@
 							<img style="width:25px;" src="{{ asset('assets/icons/pdf-icon.png') }}">
 						</a>
 					</td>
-					<td>{{ $row->desc_area }}</td>
+					<td>{{ FechaUtil::get_nom_mes($row->elaborado) }}</td>
+					<td>{{ FechaUtil::getYear($row->elaborado) }}</td>
 					<td>{{ $row->username }}</td>
-					<td>{{ $row->version }}</td>
 					<td>{{ $row->created_at }}</td>
 				</tr>
 			@endforeach

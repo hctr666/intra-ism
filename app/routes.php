@@ -10,22 +10,6 @@
 |
 */
 
-/*Route::get('/', 'AuthController@get_login');
-Route::get('login', 'AuthController@get_login');
-Route::post('login', 'AuthController@post_login');
-
-//Route::get("home", "HomeController@showWelcome");
-Route::get('contrato', "ContratoController@get_index");
-
-Route::group(array('before' => 'auth'), function(){
-
-	//Route::controller("home", "HomeController");
-	Route::get("home", "HomeController@showWelcome");
-	Route::controller("user", "UserController");
-	Route::get('logout', 'AuthController@getLogout');
-	Route::get('user/create', 'UserController@get_create');
-});*/
-
 // Nos mostrará el formulario de login.
 Route::get('login', 'AuthController@get_login');
 
@@ -57,11 +41,13 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('nosotros', array('as' => 'nosotros', 'uses' => 'NosotrosController@get_index'));
 	Route::get('archivos', array('as' => 'archivos', 'uses' => 'FilesAreaController@get_index'));
 	Route::get('documentos/{empresa}', 'DocumentoController@get_index_comerc');
+	Route::get('documentos/esms/{sede}/{area}', 'DocumentoController@get_index_planta');
 	Route::post('documentos/{cod}/ul_1', 'DocumentoController@store_comerc');
+	Route::post('documentos/{cod}/ul_1', 'DocumentoController@store_esms');
 	Route::get('agenda', "AgendaController@index");
 	//Route::post('documentos/{cod}/ul_1/s_d', 'DocumentoController@post_create');
-	/*Route::get('hoy', function(){
-		return Time::fecha_hoy();
-	});*/
+	Route::get('fechatest', function(){
+		return FechaUtil::get_nom_mes("2015-02-20");
+	});
 
 });

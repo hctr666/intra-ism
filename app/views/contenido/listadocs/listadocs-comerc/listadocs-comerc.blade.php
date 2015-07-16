@@ -26,60 +26,18 @@
 {{ HTML::style('assets/css/tables/datatables.resp.css'); }}
 
 <style type="text/css">
-	.bs-example{
-    	margin: 0;
-    }
-
-    .navbar-brand{
-        margin-top: -15px;
-    }
-
-    #logo{
-        max-width: 70px;
-        margin-bottom: -10px;
-    }
-
-    .jumbotron{
-        margin-top: 30px;
-    }
-
-    option{
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    table.dataTable th,
-    table.dataTable td {
-        font-size: 0.85em;
-    }
-
-    .div-shadow {
-        -webkit-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
-        -moz-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
-        box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62);
-    }
-
-    table{
-        margin:25px;
-    }
-
-    .tables-container{
-        margin: 15px;
-    }
-
-    .wrp-table{
-        margin: 25px;
-    }
-
-    .col-sm-12{
-        padding: 0px;
-    }
-
-    table{
-        margin-left: 5px;
-        margin-right: 16px;
-    }
-
+	.bs-example{ margin: 0; }
+    .navbar-brand{ margin-top: -15px; }
+    #logo{ max-width: 70px; margin-bottom: -10px; }
+    .jumbotron{ margin-top: 30px; }
+    option{ padding: 10px; font-size: 0.9em; }
+    table.dataTable th, table.dataTable td { font-size: 0.85em; }
+    .div-shadow { -webkit-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62); -moz-box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62); box-shadow: 0px 0px 36px -7px rgba(0,0,0,0.62); }
+    table{ margin:25px; }
+    .tables-container{ margin: 15px; }
+    .wrp-table{ margin: 25px; }
+    .col-sm-12{ padding: 0px; }
+    table{ margin-left: 5px; margin-right: 16px; }
 </style>
 </head>
 <body>
@@ -88,6 +46,7 @@
 </body>
 </html>
 
+<!--Scripts-->
 {{ HTML::script('assets/js/jquery/jquery10.min.js'); }}
 {{ HTML::script('assets/js/bs/3.1/bootstrap.min.js'); }}
 {{ HTML::script('assets/js/bs/fileinput.min.js'); }}
@@ -99,6 +58,7 @@
 {{ HTML::script('assets/js/tables/datatables.min.js'); }}
 {{ HTML::script('assets/js/tables/datatables.responsive.min.js'); }}
 {{ HTML::script('assets/js/bs/datatables.bstrap.js'); }}
+{{ HTML::script('assets/js/util/nuevoDocComerc.js'); }}
 
 <script>
 
@@ -118,99 +78,6 @@
     $(document).ready(function() {
         $('.tbldoc').DataTable();
     });
-
-    //verificar si ningun tipo se ha seleccionado
-    var tipo = $('#sel-tipo-doc option:selected').val();
-    var tipo_pol = $('#sel-tipo-pol').val();
-    var tipo_proc = $('#sel-tipo-proc').val();
-    var tipo_foda = $('#sel-tipo-foda').val();
-    var co = $('#sel-co').val();
-
-    $(function(){
-
-        $('#_poli').hide();
-        $('#_foda').hide();
-        $('#_proc').hide();
-        $('#_co').hide();
-        $("#_nom-poli").hide();
-
-        //deshabilitar si no se ha seleccionado ningún tipo documento
-        if (tipo == '0') {
-            $('#file-0b').prop('disabled', true);
-        };
-
-        if (tipo == '1' && tipo_foda == '0') {
-            $('#file-0b').prop('disabled', true);
-        };
-
-        //deshabilitar en caso no haya seleccionado nngun tipo de documento
-        $('#sel-tipo-doc').on('change', function(){
-            if ($('#sel-tipo-doc option:selected').val() == '0') {
-                $('#file-0b').prop('disabled', true);
-            } else {
-                $('#file-0b').prop('disabled', false);
-            }
-        });
-
-        //Ocultar y mostrar los selects según selección
-        $('#sel-tipo-doc').on('change', function(){
-
-            if ($('#sel-tipo-doc option:selected').val() == '1') {
-                $("#_foda select").val("0");
-                $("#_foda").show();
-                $("#_nom-poli").hide();
-                $("#_co").show();
-
-            } else {
-                $("#_foda").hide();
-                $("#_foda select").val("0");
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '2') {
-                $("#_co").hide();
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '3') {
-                $("#_co").hide();
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '4') {
-                $("#_poli select").val("0");
-                $("#_nom-poli").show();
-                $("#_poli").show();
-                $("#txtnom").attr("placeholder", "Ingrese el título de la Política");
-                $("#_co").hide();
-
-            } else {
-                $("#_poli").hide();
-                $("#_poli select").val("0");
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '5') {
-                $("#_proc select").val("0");
-                $("#_nom-poli").show();
-                $("#_proc").show();
-                $("#txtnom").attr("placeholder", "Ingrese el título del Procedimiento");
-                $("#_co").hide();
-
-            } else {
-                $("#_proc").hide();
-                $("#_proc select").val("0");
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '6') {
-                $("#_co").hide();
-            };
-
-            if ($('#sel-tipo-doc option:selected').val() == '7') {
-                $("#_co").hide();
-            };
-        });
-    });
-        //prueba de valor de options
-        /*$('#sel-orign').on('change', function(){
-            alert($(this).val());
-        });*/
 
     /*
      *div navigation
@@ -253,5 +120,4 @@
             }
         });
     }
-
 </script>

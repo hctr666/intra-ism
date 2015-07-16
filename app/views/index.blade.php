@@ -17,20 +17,8 @@
 
 </script><style type="text/css"></style><style type="text/css"></style>
 <style type="text/css">
-	#img-footer{
-		float: left;
-		padding:4px;
-		width:40px;
-		background-color:rgba(255,255,255, .7);
-		border-radius: 100px;
-	}
-
-	#contenedor{
-		border-top: dotted;
-		border-bottom: dotted;
-		border-color: #0e8e5f;
-		border-width: .17em;
-	}
+	#img-footer{ float: left;padding:4px;width:40px;background-color:rgba(255,255,255, .7);border-radius: 100px; }
+	#contenedor{ border-top: dotted;border-bottom: dotted;border-color: #0e8e5f;border-width: .17em; }
 </style>
 <!-- Shims -->
 <!--[if lt IE 9]>
@@ -40,8 +28,9 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<!-- 		<meta property="og:url" content="http://plugins.adchsm.me/slidebars/">
--->	<meta property="og:title" content="Conecta">
+
+<!--<meta property="og:url" content="http://plugins.adchsm.me/slidebars/">-->
+<meta property="og:title" content="Conecta">
 
 <!-- Web App -->
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -107,10 +96,10 @@
 	{{ HTML::script('assets/js/bs/bootstrap.min.js'); }}
 	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'); }}
 	{{ HTML::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'); }}
+	
 	<script type="text/javascript">
-	    $('.carousel').carousel({
-	        interval: 3000
-	    })
+		//inicializa el carrusel de fotos
+	    $('.carousel').carousel({ interval: 3000 })
 	</script>
 
 
@@ -118,8 +107,7 @@
 	{{ HTML::script('assets/js/slide-bars/slidebars.min.js'); }}
 	<script>
 		(function($) {
-			$(document).ready(function() {
-				// Initiate Slidebars
+			$(document).ready(function() { // Initiate Slidebars
 				$.slidebars();
 			});
 		}) (jQuery);
@@ -176,9 +164,7 @@
         });
     }
 
-    function makeHome() {
-    	$("#sb-site").load("home");
-    }
+    function makeHome() { $("#sb-site").load("home"); }
 
 </script>
 </html>

@@ -1,8 +1,8 @@
-<a id="rpc"></a>
+<a id="reg"></a>
 <div class="div-shadow contenido">
 	<div>
 		<div class="titulo-sec" style="background-color:#0e8e5f; width:100%;">
-			<h5 style="padding:8px; color:white;">Facturas RPC</h5>
+			<h5 style="padding:8px; color:white;">Reglamento Interno de Trabajo (RIT)</h5>
 		</div>		
 	</div>
 	<div class="wrp-table">
@@ -12,14 +12,14 @@
 					<th>ID</th>
 					<th>Descripción</th>
 					<th>Visualizar</th>
-					<th>Mes_factura</th>
-					<th>Año_factura</th>
+					<th>Elaborado por</th>
 					<th>Subido por</th>
+					<th>Versión</th>
 					<th>Fecha carga</th>
 				</tr>
 			</thead>
 			<tbody>
-			@foreach($res_rpc as $row)
+			@foreach($res_rit as $row)
 				<tr>
 					<td>{{ $row->id }}</td>
 					<td>{{ $row->desc_doc }}</td>
@@ -28,9 +28,9 @@
 							<img style="width:25px;" src="{{ asset('assets/icons/pdf-icon.png') }}">
 						</a>
 					</td>
-					<td>{{ FechaUtil::get_nom_mes($row->elaborado) }}</td>
-					<td>{{ FechaUtil::getYear($row->elaborado) }}</td>
+					<td>{{ $row->desc_area }}</td>
 					<td>{{ $row->username }}</td>
+					<td>{{ $row->version }}</td>
 					<td>{{ $row->created_at }}</td>
 				</tr>
 			@endforeach

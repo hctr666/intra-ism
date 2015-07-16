@@ -5,24 +5,10 @@
 */
 class DocumentoController extends BaseController
 {
-	
-/*	public function post_create(){
-		$documento = new Documento;
-		$documento->desc_doc = $desc_doc;
-		$documento->url_file = $url_doc.$filename;
-		$documento->tipo_doc = $tipo_doc;
-		$documento->area_id = $area_id;
-		$documento->elaborado = $elaborado;
-		$documento->aprobado = $aprobado;
-		$documento->empresa_id = $empresa_id;
-		$documento->user_id = $user_id;
-		$documento->set_version($documento->url_file);
-		$documento->state = true;
-		$documento->save();
-		return Redirect::to('documentos/' . $cod)
-					->with('msj-upload-ok', 'Documento cargado correctamente :)');
-	}*/
-
+	/*
+	 * Funcion para cargar interfaz de
+	 * documentos de empresas comercial
+	 */
 	public function get_index_comerc($empresa){
 
 		$area = Area::orderBy('desc_area')->get(['id', 'desc_area']);
@@ -38,12 +24,13 @@ class DocumentoController extends BaseController
 		$res_proc = null;
 		$res_rpc = null;
 		$res_modm = null;
+		$extra = null;
 
 		switch ($empresa) {
 			case 'ga':
 				$document = new Documento;
 				$nomemp = "G&A";
-				$img_url = "../assets/img/GA.jpg";
+				$img_url = "../assets/icons/comercial/ga_.jpg";
 				$id_emp = 4;
 				$res_org = $document->selec_doc($id_emp, 'organigrama');
 				$res_mof = $document->selec_doc($id_emp, 'MOF');
@@ -54,12 +41,13 @@ class DocumentoController extends BaseController
 				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
 				$res_rpc = $document->selec_doc($id_emp, 'RPC');
 				$res_modm = $document->selec_doc($id_emp, 'modem');
+				$extra = 1;
 				break;
 			
 			case 'sl':
 				$document = new Documento;
 				$nomemp = "SilverLake";
-				$img_url = "../assets/img/SILVERLAKE.jpg";
+				$img_url = "../assets/icons/comercial/sl_.jpg";
 				$id_emp = 5;
 				$res_org = $document->selec_doc($id_emp, 'organigrama');
 				$res_mof = $document->selec_doc($id_emp, 'MOF');
@@ -70,12 +58,13 @@ class DocumentoController extends BaseController
 				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
 				$res_rpc = $document->selec_doc($id_emp, 'RPC');
 				$res_modm = $document->selec_doc($id_emp, 'modem');
+				$extra = 1;
 				break;
 			
 			case 'ck':
 				$document = new Documento;
-				$nomemp = "Cyncat";
-				$img_url = "../assets/img/cyncat.jpg";
+				$nomemp = "Cynkat";
+				$img_url = "../assets/icons/comercial/ck_.jpg";
 				$id_emp = 3;
 				$res_org = $document->selec_doc($id_emp, 'organigrama');
 				$res_mof = $document->selec_doc($id_emp, 'MOF');
@@ -86,12 +75,13 @@ class DocumentoController extends BaseController
 				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
 				$res_rpc = $document->selec_doc($id_emp, 'RPC');
 				$res_modm = $document->selec_doc($id_emp, 'modem');
+				$extra = 1;
 				break;
 
 			case 'ptv':
 				$document = new Documento;
-				$nomemp = "PTV Business";
-				$img_url = "../assets/img/PTV.jpg";
+				$nomemp = "PTV";
+				$img_url = "../assets/icons/comercial/ptv_.jpg";
 				$id_emp = 7;
 				$res_org = $document->selec_doc($id_emp, 'organigrama');
 				$res_mof = $document->selec_doc($id_emp, 'MOF');
@@ -102,12 +92,13 @@ class DocumentoController extends BaseController
 				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
 				$res_rpc = $document->selec_doc($id_emp, 'RPC');
 				$res_modm = $document->selec_doc($id_emp, 'modem');
+				$extra = 1;
 				break;
 
 			case 'thr':
 				$document = new Documento;
 				$nomemp = "THR";
-				$img_url = "../assets/img/THR.jpg";
+				$img_url = "../assets/icons/comercial/thr_.jpg";
 				$id_emp = 6;
 				$res_org = $document->selec_doc($id_emp, 'organigrama');
 				$res_mof = $document->selec_doc($id_emp, 'MOF');
@@ -118,25 +109,172 @@ class DocumentoController extends BaseController
 				$res_proc = $document->selec_doc($id_emp, 'procedimiento');
 				$res_rpc = $document->selec_doc($id_emp, 'RPC');
 				$res_modm = $document->selec_doc($id_emp, 'modem');
+				$extra = 1;
+				break;
+
+			case 'ch':
+				$document = new Documento;
+				$nomemp = "Chanaltin";
+				$img_url = "../assets/icons/comercial/chan_.jpg";
+				$id_emp = 10;
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');				
+				$extra = 0;
+				break;
+
+			case 'bhr':
+				$document = new Documento;
+				$nomemp = "Bhrusa";
+				$img_url = "../assets/icons/comercial/bhr_.jpg";
+				$id_emp = 9;
+				$res_rpc = $document->selec_doc($id_emp, 'RPC');
+				$res_modm = $document->selec_doc($id_emp, 'modem');				
+				$extra = 0;
 				break;
 		}
 
 		return View::make("contenido.listadocs.listadocs-comerc.listadocs-comerc", 
-			array('empresa' => $nomemp, 
-				  'cod' => $empresa, 
-				  'url_logo' => $img_url, 
-				  'orign' => $area,
-				  'res_org' => $res_org,
-				  'res_mof' => $res_mof,
-				  'res_rit' => $res_rit,
-				  'res_rsst' => $res_rsst,
-				  'res_foda' => $res_foda,
-				  'res_pol' => $res_pol,
-				  'res_proc' => $res_proc,
-				  'res_rpc' => $res_rpc,
-				  'res_modm' => $res_modm
+			array('empresa' => $nomemp, 'cod' => $empresa, 'url_logo' => $img_url, 'orign' => $area,
+				  'res_org' => $res_org, 'res_mof' => $res_mof, 'res_rit' => $res_rit, 'res_rsst' => $res_rsst,
+				  'res_foda' => $res_foda, 'res_pol' => $res_pol, 'res_proc' => $res_proc, 'res_rpc' => $res_rpc,
+				  'res_modm' => $res_modm, 'extra' => $extra
 				 )
 			);
+	}
+
+	/*
+	 * Funcion para cargar la interfaz de
+	 * documentos de planta según area
+	 */
+	public function get_index_planta($sede, $area){
+		$nomarea = null;
+		$nomsede = null;
+		$img_url = URL::asset('assets/icons/esms.jpg');
+		$id_emp = null;
+		$res_org = null;
+		$res_mof = null;
+		$res_rit = null;
+		$res_rsst = null;
+		$res_foda = null;
+		$res_pol = null;
+		$res_proc = null;
+		$res_rpc = null;
+		$res_modm = null;
+		$extra = null;
+
+		switch ($sede) {
+			case 'aqp':
+				$nomsede = 'Arequipa';
+				break;
+			
+			case 'h':
+				$nomsede = 'Huaura';
+				break;
+		}
+
+		switch ($area) {
+			case 'sist':
+				$document = new Documento;
+				$nomarea = "Sistemas";
+				break;
+			
+			case 'comu':
+				$document = new Documento;
+				$nomarea = "Comunicaciones";
+				break;
+
+			case 'ghuma':
+				$document = new Documento;
+				$nomarea = "Gestión Humana";
+				break;
+
+			case 'fi-co':
+				$document = new Documento;
+				$nomarea = "Finanzas/Contabilidad";
+				break;
+
+			case 'legal':
+				$document = new Documento;
+				$nomarea = "Legal";
+				break;
+
+			case 'logis':
+				$document = new Documento;
+				$nomarea = "Logística";
+				break;
+
+			case 'produ':
+				$document = new Documento;
+				$nomarea = "Producción";
+				break;
+
+			case 'soste':
+				$document = new Documento;
+				$nomarea = "Sostenibilidad";
+				break;
+
+			case 'segu':
+				$document = new Documento;
+				$nomarea = "Seguridad Industrial";
+				break;
+
+			case 'salud':
+				$document = new Documento;
+				$nomarea = "Salud Ocupacional";
+				break;
+
+			case 'i+d':
+				$document = new Documento;
+				$nomarea = "I + D";
+				break;
+
+			case 'proy':
+				$document = new Documento;
+				$nomarea = "Proyectos";
+				break;
+
+			case 'mant':
+				$document = new Documento;
+				$nomarea = "Mantenimiento";
+				break;
+
+			case 'sgi':
+				$document = new Documento;
+				$nomarea = "SGI";
+				break;
+		}
+		return View::make('contenido.listadocs.listadocs-esms.listadocs-esms',
+							array('area' => $nomarea, 'cod' => $area, 'sede' => $nomsede,
+								  'url_logo' => $img_url, 'orign' => $area, 'res_org' => $res_org,
+								  'res_mof' => $res_mof, 'res_rit' => $res_rit, 'res_rsst' => $res_rsst,
+						          'res_foda' => $res_foda, 'res_pol' => $res_pol, 'res_proc' => $res_proc, 'res_rpc' => $res_rpc,
+						          'res_modm' => $res_modm, 'extra' => $extra
+						 		 )
+		);
+	}
+
+	public function store_esms($cod){
+		if (Input::hasFile('doc')) {
+			if ($tipo != '0') {
+				switch ($cod) {
+					case 'sist':
+						# code...
+						break;
+					
+					case 'comu':
+						# code...
+						break;
+
+					case 'ghuma':
+						# code...
+						break;
+				}
+			} else {
+				#error no se seleccionó documento
+			}
+		} else {
+			#error no hay ningún documento cargado
+		}
 	}
 
 	public function store_comerc($cod){		
@@ -146,6 +284,7 @@ class DocumentoController extends BaseController
 		$url_doc = "";//url acceso desde browser
 		$foldername = ""; //nombre de folder
 		$tipo = Input::get('tipo-doc'); //obtiene valor tipo documento seleccionado
+		$tipo_fac = Input::get('fac-tipo');
 
 		if (Input::hasFile('doc')) { //Si hay documento seleccionado
 			if ($tipo != '0') { //Si ha seleccionado tipo documento
@@ -283,6 +422,58 @@ class DocumentoController extends BaseController
 									->with('upload_error', 'El archivo ya existe :(');
 						}
 						break;
+
+					case 'ch':
+						if (!file_exists($foldername."/CHAN")) { //si el archivo no existe
+							$this->creafolder($foldername, "CHAN"); //se crea folder
+						}
+						$url_destino = $foldername."CHAN"; //url destino
+
+						//selecciona tipo documento y le asigna el nombre tipo-empresa-fecha de carga
+						$result = $this->carpetaSegunTipo($tipo, $url_destino, $cod);
+						$arr = explode("|", $result);
+						$url_destino = $arr[0];
+						$filename = $arr[1];
+
+						$desc_doc = $filename."-CHAN";//nombre par almacenar en la bd
+
+						//se asigna el nombre del documento
+						$filename = $filename.".pdf";
+
+						//$url_destino = public_path()."/docs/GYA/";
+						if (!file_exists($url_destino.$filename)) {
+							$uploadSuccess = $file->move($url_destino, $filename);
+						} else {
+							return Redirect::to('documentos/'.$cod)
+									->with('upload_error', 'El archivo ya existe :(');
+						}
+						break;
+
+					case 'bhr':
+						if (!file_exists($foldername."/BHR")) { //si el archivo no existe
+							$this->creafolder($foldername, "BHR"); //se crea folder
+						}
+						$url_destino = $foldername."BHR"; //url destino
+
+						//selecciona tipo documento y le asigna el nombre tipo-empresa-fecha de carga
+						$result = $this->carpetaSegunTipo($tipo, $url_destino, $cod);
+						$arr = explode("|", $result);
+						$url_destino = $arr[0];
+						$filename = $arr[1];
+
+						$desc_doc = $filename."-BHR";//nombre par almacenar en la bd
+
+						//se asigna el nombre del documento
+						$filename = $filename.".pdf";
+
+						//$url_destino = public_path()."/docs/GYA/";
+						if (!file_exists($url_destino.$filename)) {
+							$uploadSuccess = $file->move($url_destino, $filename);
+						} else {
+							return Redirect::to('documentos/'.$cod)
+									->with('upload_error', 'El archivo ya existe :(');
+						}
+						break;
 				}
 
 				$url_doc = str_replace("c:/xampp/htdocs", "localhost", $url_destino);
@@ -290,11 +481,21 @@ class DocumentoController extends BaseController
 				$documento = new Documento;
 				$documento->desc_doc = $desc_doc;
 				$documento->url_file = $url_doc.$filename;
-				$documento->tipo_doc = $this->getNomTipo($tipo);
-				$documento->area_id = Input::get('orign-de');
+				if ($cod == 'bhr' || $cod == 'ch') {
+					$documento->tipo_doc = $this->getNomTipo($tipo_fac);
+				} else {
+					$documento->tipo_doc = $this->getNomTipo($tipo);
+				}
+				
+				if ($cod == 'bhr' || $cod == 'ch') {
+					$documento->area_id = Auth::user()->area_id;
+				} else {
+					$documento->area_id = Input::get('orign-de');
+				}
+
 				$documento->elaborado = Input::get('fch-elab');
 				$documento->aprobado = Input::get('fch-apro');
-				$documento->empresa_id = $this->getIdEmpresa($cod);;
+				$documento->empresa_id = $this->getIdEmpresa($cod);
 				$documento->user_id = Auth::user()->id;
 				$documento->set_version($url_destino);
 				$documento->state = true;
@@ -304,11 +505,12 @@ class DocumentoController extends BaseController
 					->with('msj-upload-ok', 'Documento cargado correctamente :)');
 
 			} else {
-				//error message				
+				return Redirect::to('documentos/'.$cod)
+						->with('upload_error', 'Ocurrió un error al subir el archivo :////');
 			}
 		} else {
 			return Redirect::to('documentos/'.$cod)
-					->with('upload_error', 'Ocurrió un error al subir el archivo :(');
+					->with('upload_error', 'Ocurrió un error al subir el archivo :/ :(');
 		}
 	}
 
@@ -410,13 +612,18 @@ class DocumentoController extends BaseController
 				break;
 
 			case '8':
-				if (!file_exists($url_destino."/RPC")) {
-					mkdir($url_destino."/RPC", 0777);					
-					$url_destino = $url_destino . "/RPC/";	
+				$tipo_fac = Input::get('fac-tipo');
+				if (!file_exists($url_destino."/FACTURA")) {
+					mkdir($url_destino."/FACTURA", 0777);
+					$url_destino = $url_destino . "/FACTURA/";	
 				} else {
-					$url_destino = $url_destino . "/RPC/";
+					$url_destino = $url_destino . "/FACTURA/";
 				}
-				$filename = "RPC";
+				$filename = "Factura";
+				$result = $this->facturaTipo($tipo_fac, $filename, $url_destino);
+				$arr = explode("|", $result);
+				$url_destino = $arr[0];
+				$filename = $arr[1];				
 				break;
 		}
 		return $url_destino."|".$filename;
@@ -520,8 +727,34 @@ class DocumentoController extends BaseController
 		return $url_destino."|".$file_name;
 	}
 
-	public function getNomTipo($tipo){
-		
+	public function facturaTipo($tipo_fac, $filename, $url_destino){
+		$emision = Input::get('fch-elab');
+		$mes = FechaUtil::get_nom_mes($emision);
+		switch ($tipo_fac) {
+			case '8':
+				if (!file_exists($url_destino."RPC")) {
+					mkdir($url_destino."RPC", 0777);
+					$url_destino = $url_destino . "RPC/";			
+				} else {
+					$url_destino = $url_destino . "RPC/";
+				}
+				$filename = $filename.'_RPC_'.$mes;
+				break;
+			
+			case '9':
+				if (!file_exists($url_destino."modem")) {
+					mkdir($url_destino."modem", 0777);
+					$url_destino = $url_destino . "modem/";			
+				} else {
+					$url_destino = $url_destino . "modem/";
+				}
+				$filename = $filename.'_modem_'.$mes;
+				break;
+		}
+		return $url_destino."|".$filename;
+	}
+
+	public function getNomTipo($tipo){		
 		$nom = "";
 		switch ($tipo) {
 			case '1': $nom = 'FODA'; 
@@ -544,8 +777,13 @@ class DocumentoController extends BaseController
 
 			case '7': $nom = 'RSST';
 				break;
-		}
 
+			case '8': $nom = 'RPC';
+				break;
+
+			case '9': $nom = 'Modem';
+				break;
+		}
 		return $nom;
 	}
 
@@ -565,6 +803,12 @@ class DocumentoController extends BaseController
 				break;
 
 			case 'ptv': $id = 7;
+				break;
+
+			case 'ch': $id = 10;
+				break;
+
+			case 'bhr': $id = 9;
 				break;
 		}
 

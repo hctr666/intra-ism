@@ -22,7 +22,8 @@ class Documento extends Eloquent
 
     public function selec_doc($id_emp, $tipo_doc){
         $result = DB::select("SELECT d.id, d.desc_doc, d.url_file,
-                           a.desc_area, d.created_at, d.version, u.username
+                           a.desc_area, d.created_at, d.version,
+                           u.username, d.elaborado 
                     FROM documento d, area a, users u
                     WHERE a.id = d.area_id AND u.id = d.user_id
                         AND d.empresa_id = $id_emp 

@@ -12,4 +12,9 @@ class Empresa extends Eloquent
     	return $this->belongsTo('User');
     }
 
+    public static function getSedeAuth($id){
+    	$sede = Empresa::find($id)->sede_emp;
+    	return $sede;
+    }
+
 }
