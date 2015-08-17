@@ -1,6 +1,6 @@
 	//alert($('#sel-sede option:selected').text());
 	//array para almacenar los id de cada etiqueta <a>
-	var linksId = ['sist','comu','ghuma','fi-co',
+	var linksId = ['esms','sist','comu','ghuma','cont','fina',
 				   'legal','logis','produ','soste',
 				   'segu','salud','i+d','proy','mant'];
 

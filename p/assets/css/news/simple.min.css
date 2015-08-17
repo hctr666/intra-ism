@@ -77,7 +77,7 @@ background-color:#0f3fa1
 
 .list-aggregate li { margin:10px; margin-top: 10px; border-bottom: dotted; border-color: #0e8e5f; border-width: .08em; height: 100px;}
 
-.list-aggregate li p { color: #000; padding:0 10px; text-align: justify; font-size: 0.8em;}
+.list-aggregate li article { color: #000; padding:0 10px; text-align: justify; font-size: 0.8em;}
 
 .list-aggregate li:hover { background-color: #fff }
 

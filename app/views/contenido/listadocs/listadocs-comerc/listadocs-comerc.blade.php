@@ -24,6 +24,7 @@
 {{ HTML::style('assets/css/bs/bootstrap_dtp.min.css'); }}
 {{ HTML::style('assets/css/bs/datatables.bstrap.css'); }}
 {{ HTML::style('assets/css/tables/datatables.resp.css'); }}
+{{ HTML::style('assets/css/docs/main.css') }}
 
 <style type="text/css">
 	.bs-example{ margin: 0; }
@@ -42,7 +43,31 @@
 </head>
 <body>
     @include('contenido.listadocs.listadocs-comerc.listadocs-comerc-header')
-    @include('contenido.listadocs.listadocs-comerc.listadocs-comerc-content')
+    <div class="content-wrap">
+        @include('contenido.listadocs.listadocs-comerc.listadocs-comerc-content')
+    </div>
+
+    <!--Modal del confirmación -->
+    <div id="confirma-mdl" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <center>
+                <h4 class="modal-title">¿Confirma eliminar el documento seleccionado?</h4>
+            </center>
+          </div>
+          <div class="modal-body">
+            <center>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Si</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
 
@@ -59,6 +84,7 @@
 {{ HTML::script('assets/js/tables/datatables.responsive.min.js'); }}
 {{ HTML::script('assets/js/bs/datatables.bstrap.js'); }}
 {{ HTML::script('assets/js/util/nuevoDocComerc.js'); }}
+{{ HTML::script('assets/js/docs/main.js'); }}
 
 <script>
 

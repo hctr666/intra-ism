@@ -45,10 +45,15 @@
                 $("#_foda select").val("0");
             };
 
-            if ($('#sel-tipo-doc option:selected').val() == '2') {
+            if ($('#sel-tipo-doc option:selected').val() == '2') {//se selecciona la opción MOF
+                $("#txcarg").attr("required", true);
                 $("#_co").hide();
                 $("#_fact").hide();
                 $("#_nom-poli").hide();
+                $("#_txcarg").show();
+            } else {
+                $("#txcarg").attr("required", false);
+                $("#_txcarg").hide();
             };
 
             if ($('#sel-tipo-doc option:selected').val() == '3') {
@@ -59,11 +64,13 @@
                 $("#_poli select").val("0");
                 $("#_nom-poli").show();
                 $("#_poli").show();
-                $("#txtnom").attr("placeholder", "Ingrese el título de la Política");
+                $("#txtnom").attr("required", true);
+                $("#txtnom").attr("placeholder", "Ej.: 'Gestión de ventas al crédito'");
                 $("#_co").hide();
                 $("#_fact").hide();
 
             } else {
+                $("txtnom").attr("required", false);
                 $("#_poli").hide();
                 $("#_poli select").val("0");
             };
@@ -72,10 +79,12 @@
                 $("#_proc select").val("0");
                 $("#_nom-poli").show();
                 $("#_proc").show();
-                $("#txtnom").attr("placeholder", "Ingrese el título del Procedimiento");
+                $("#txtnom").attr("required", true);
+                $("#txtnom").attr("placeholder", "Ej.: 'Control de desmedros'");
                 $("#_co").hide();
                 $("#_fact").hide();
             } else {
+                $("#txtnom").attr("required", false);
                 $("#_proc").hide();
                 $("#_proc select").val("0");
             };

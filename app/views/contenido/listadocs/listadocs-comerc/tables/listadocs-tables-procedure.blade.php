@@ -12,10 +12,13 @@
 					<th>ID</th>
 					<th>Descripción</th>
 					<th>Visualizar</th>
-					<th>Elaborado por</th>
-					<th>Subido por</th>
+					<th>Elaborado</th>
 					<th>Versión</th>
+					<th>Subido por</th>
 					<th>Fecha carga</th>
+					@if( User::isAdmin() )
+					<th>Eliminar</th>
+					@endif
 				</tr>
 			</thead>
 			<tbody>
@@ -24,14 +27,17 @@
 					<td>{{ $row->id }}</td>
 					<td>{{ $row->desc_doc }}</td>
 					<td>
-						<a href="http://{{ $row->url_file }}" target="_blank">
+						<a href="../visor/index.html#../{{ $row->url_file }}" target="_blank">
 							<img style="width:25px;" src="{{ asset('assets/icons/pdf-icon.png') }}">
 						</a>
 					</td>
-					<td>{{ $row->desc_area }}</td>
-					<td>{{ $row->username }}</td>
+					<td>{{ date('d-m-Y', strtotime($row->elaborado)) }}</td>
 					<td>{{ $row->version }}</td>
-					<td>{{ $row->created_at }}</td>
+					<td>{{ $row->username }}</td>
+					<td>{{ date('d-m-Y - h:m', strtotime($row->created_at)) }}</td>
+					@if( User::isAdmin() )
+					<td><a href="#"><img class="btn-del-doc"></a></td>
+					@endif
 				</tr>
 			@endforeach
 			</tbody>

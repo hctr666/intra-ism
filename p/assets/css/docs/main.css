@@ -1,0 +1,53 @@
+div.jumbotron > form{
+	margin:6px;
+	margin-left: 0.5%;
+	margin-top:-24px;
+}
+
+div.content-wrap{
+	margin:12px;
+	margin-top:66px;
+}
+
+label{
+	font-size: 12px;
+}
+
+div.date-input-w{
+	max-width: 25%;
+	min-width: 220px;
+}
+
+input.number-input-w{
+	width: 20%;
+	min-width: 100px;
+}
+
+select.frm-selct{
+	max-width: 40%;
+	min-width: 200px;
+}
+
+input.frm-selct{
+	max-width: 45%;
+	min-width: 200px;	
+}
+
+div.file_input{
+	max-width: 35%;
+	min-width: 220px;
+}
+
+label#lb-upload{
+	display: none;
+}
+
+div.msj{
+	margin-top: -20px;
+	margin-bottom: 40px;
+}
+
+img.btn-del-doc{
+	width: 25px;
+	content: url("../../../assets/icons/trash.png");
+}

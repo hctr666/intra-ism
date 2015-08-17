@@ -43,11 +43,25 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('documentos/{empresa}', 'DocumentoController@get_index_comerc');
 	Route::get('documentos/esms/{sede}/{area}', 'DocumentoController@get_index_planta');
 	Route::post('documentos/{cod}/ul_1', 'DocumentoController@store_comerc');
-	Route::post('documentos/{cod}/ul_1', 'DocumentoController@store_esms');
+	Route::post('documentos/esms/{sede}/{area}/ul_2', 'DocumentoController@store_esms');
 	Route::get('agenda', "AgendaController@index");
+	Route::get('media', 'MultimediaController@index');
 	//Route::post('documentos/{cod}/ul_1/s_d', 'DocumentoController@post_create');
 	Route::get('fechatest', function(){
 		return FechaUtil::get_nom_mes("2015-02-20");
 	});
 
+	Route::get('area_id', function(){
+		return Documento::get_id_area('sist');
+	});
+
+	#Route::any('visor/{all?}', 'ViewerController@get_index');
+	Route::any('visor/{all?}', 'ViewerController@get_index');
+	Route::get('documentos/ism/sistemas/soporte', 'DocumentoController@get_index_soporte');
+	
+	/*Route::get('base', function(){
+		return public_path();
+	});*/
 });
+
+Route::get('resul', function(){});

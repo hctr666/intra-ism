@@ -21,3 +21,4 @@
 		@include('home.subcontent.last-news')
 	</div>	
 </div>
+<div id="multim"></div>

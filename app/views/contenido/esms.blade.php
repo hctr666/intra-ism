@@ -11,6 +11,23 @@
 	<div class="row _row_">
 		<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
 			<div class="ih-item circle effect1">
+			<a id="esms" target="_blank">
+				<!--Effect: Bottom to Top -->
+				<div class="spinner"></div>
+				<div class="img">
+				    {{ HTML::image("assets/img/planta.jpg"); }}
+				</div>
+				<div class="info">
+					<div class="info-back">
+						<h4>Embotelladora</h4>	
+						<h3 class="tit-subt" style="font-size:12px;">San Miguel del Sur</h3>	
+					</div>
+				</div>
+			</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
+			<div class="ih-item circle effect1">
 			<a id="sist" target="_blank">
 				<!--Effect: Bottom to Top -->
 				<div class="spinner"></div>
@@ -59,15 +76,31 @@
 		</div>
 		<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
 			<div class="ih-item circle effect1">
-			<a id="fi-co" target="_blank">
+			<a id="cont" target="_blank">
 				<!--Effect: Bottom to Top -->
 				<div class="spinner"></div>
 				<div class="img">
-				    {{ HTML::image("assets/img/cont-fina.jpg"); }}
+				    {{ HTML::image("assets/img/conta.jpg"); }}
 				</div>
 				<div class="info">
 					<div class="info-back">
-						<h3 style="font-size:12px;">Contabilidad y Finanzas</h3>	
+						<h3 style="font-size:12px;">Contabilidad</h3>	
+					</div>
+				</div>
+			</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 col-rd">
+			<div class="ih-item circle effect1">
+			<a id="fina" target="_blank">
+				<!--Effect: Bottom to Top -->
+				<div class="spinner"></div>
+				<div class="img">
+				    {{ HTML::image("assets/img/fina.jpg"); }}
+				</div>
+				<div class="info">
+					<div class="info-back">
+						<h3 style="font-size:12px;">Finanzas</h3>	
 					</div>
 				</div>
 			</a>
@@ -207,7 +240,7 @@
 				<!--Effect: Bottom to Top -->
 				<div class="spinner"></div>
 				<div class="img">
-				    {{ HTML::image("assets/img/mant.jpg"); }}
+				    {{ HTML::image("assets/img/mante.jpg"); }}
 				</div>
 				<div class="info">
 					<div class="info-back">

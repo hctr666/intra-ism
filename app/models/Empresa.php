@@ -13,8 +13,14 @@ class Empresa extends Eloquent
     }
 
     public static function getSedeAuth($id){
-    	$sede = Empresa::find($id)->sede_emp;
+    	if (is_null($id) || $id == '')
+    	{
+    		$sede = "No definido";
+    	}
+    	else
+    	{
+	    	$sede = Empresa::find($id)->sede_emp;    		
+    	}
     	return $sede;
     }
-
 }

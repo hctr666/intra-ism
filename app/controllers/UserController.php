@@ -25,12 +25,14 @@ class UserController extends BaseController
 	 */
 	public function post_create(){
 		$user = new User;
-		$user->display_name = Input::get('txtname');
+		$user->display_name = Input::get('txtname') . ' ' . Input::get('txtapel');
 		$user->email = Input::get('txtemail');
+		$user->username = Input::get('txtusern');
 		#$user->password = Input::get('txtpass');
-		$user->set_password(Input::get('txtpass'));
-		#$user->set_password(Input::get('txtpass'));
+		$user->set_password(Input::get('txtpass'));	
 		$user->save();
+		
+		#$user->set_password(Input::get('txtpass'));
 		#get_index();
 		#return "el formulario ha sido posteado.";
 		return Redirect::to('user');

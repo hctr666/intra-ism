@@ -6,7 +6,7 @@
 	        	<img id="img-footer" style="" src="assets/icons/logomain.png">					
 			</div>
             <div class="col-sm-4">
-            	Desarrollado y potenciado por Sistemas - ISM
+            	Desarrollado y potenciado por el Area de Sistemas - Industrias San Miguel
             </div>
             <div class="col-sm-4">
                 <a href="http://localhost/intra-ism/">Copyright &copy; Intranet corp. ISM - 2015 · Todos los derechos reservados</a>.            	

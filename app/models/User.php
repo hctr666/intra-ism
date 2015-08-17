@@ -87,23 +87,44 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public static function getCargoUser(){
         $cargo = Cargo::find(Auth::user()->cargo_id);
-        $cargo = $cargo->desc_cargo;
-        $cargo = strtolower($cargo);
-        $cargo = ucfirst($cargo);
+
+        if (is_null($cargo) || $cargo == '')
+        {
+            $cargo = "No definido";
+        }
+        else
+        {
+            $cargo = $cargo->desc_cargo;
+            $cargo = strtolower($cargo);
+            $cargo = ucfirst($cargo);
+        }
         return $cargo;
     }
 
     public static function getAreaUser(){
         $area = Area::find(Auth::user()->area_id);
-        $area = $area->desc_area;
-        $area = strtolower($area);
-        $area = ucfirst($area);
+        if (is_null($area) || $area == '')
+        {
+           $area = "No definido";
+        }
+        else
+        {
+            $area = $area->desc_area;
+            $area = strtolower($area);
+            $area = ucfirst($area);             
+        }
         return $area;        
     }
 
     public static function getEmpresaUser(){
         $empresa = Empresa::find(Auth::user()->empresa_id);
-        $empresa = $empresa->desc_emp;
+        if (is_null($empresa) || $empresa == '') {
+            $empresa = "No definido"; 
+        }
+        else
+        {
+            $empresa = $empresa->desc_emp;
+        }
         return $empresa;
     }
 

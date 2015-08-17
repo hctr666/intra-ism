@@ -18,7 +18,10 @@
             <div>
               <a href="">Breaking News 1</a>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
               <button class="btn btn-xs btn-info">Leer más</button>              
               </p>
             </div>              
@@ -29,7 +32,10 @@
             <div>
               <a href="">Breaking News 2</a>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
               <button class="btn btn-xs btn-info">Leer más</button>               
               </p>
             </div>              
@@ -40,7 +46,10 @@
             <div>
               <a href="">Breaking News 3</a>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing icitudin semper. Nam convallis sapien nisi, ac vulputate nisi auctor blandit. Donec tincid.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
               <button class="btn btn-xs btn-info">Leer más</button>               
               </p>
             </div>              

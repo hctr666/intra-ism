@@ -117,7 +117,7 @@
 	{{ HTML::script('assets/js/slide-show/responsiveslides.min.js'); }}
 
 	<!--Plugins para la agenda-->
-	<script type="text/javascript" src='assets/js/moment/moment.min.js'></script>
+	{{ HTML::script('assets/js/moment/moment.min.js'); }}
 	{{ HTML::script('assets/js/calendar/fullcalendar.min.js'); }}
 	{{ HTML::script('assets/js/calendar/gcal.js'); }}
 	{{ HTML::script('assets/js/calendar/lang-all.js'); }}
@@ -125,46 +125,79 @@
 
 </body>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(document).on("scroll", onScroll);
-        
-        //smoothscroll
-        $('a[href^="#"]').on('click', function (e) {
-            e.preventDefault();
-            $(document).off("scroll");
-            
-            $('a').each(function () {
-                $(this).removeClass('active');
-            })
-            $(this).addClass('active');
-          
-            var target = this.hash,
-                menu = target;
-            $target = $(target);
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top-90
-            }, 500, 'swing', function () {
-                window.location.hash = target;
-                $(document).on("scroll", onScroll);
-            });
-        });
-    });
 
-    function onScroll(event){
-        var scrollPos = $(document).scrollTop();
-        $('#main-header a').each(function () {
-            var currLink = $(this);
-            var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $('#main-header ul li a').removeClass("active");
-                currLink.addClass("active");
-            } else {
-                currLink.removeClass("active");
-            }
-        });
+    //scrollto
+	$(document).ready(function(){
+
+	    /** 
+	     * This part does the "fixed navigation after scroll" functionality
+	     * We use the jQuery function scroll() to recalculate our variables as the 
+	     * page is scrolled/
+	     */
+	    $(window).scroll(function(){
+	        var window_top = $(window).scrollTop() + 12; // the "12" should equal the margin-top value for nav.stick
+	        var div_top = $('#nav-anchor').offset().top;
+	            if (window_top > div_top) {
+	                $('nav').addClass('stick');
+	            } else {
+	                $('nav').removeClass('stick');
+	            }
+	    });
+
+	    /**
+	     * This part causes smooth scrolling using scrollto.js
+	     * We target all a tags inside the nav, and apply the scrollto.js to it.
+	     */
+	    $("nav a").click(function(evn){
+	        evn.preventDefault();
+	        $('html,body').scrollTo(this.hash, this.hash); 
+	    });
+
+	    /**
+	     * This part handles the highlighting functionality.
+	     * We use the scroll functionality again, some array creation and 
+	     * manipulation, class adding and class removing, and conditional testing
+	     */
+	    var aChildren = $("nav li").children(); // find the a children of the list items
+	    var aArray = []; // create the empty aArray
+	    for (var i=0; i < aChildren.length; i++) {    
+	        var aChild = aChildren[i];
+	        var ahref = $(aChild).attr('href');
+	        aArray.push(ahref);
+	    } // this for loop fills the aArray with attribute href values
+
+	    $(window).scroll(function(){
+	        var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+	        var windowHeight = $(window).height(); // get the height of the window
+	        var docHeight = $(document).height();
+
+	        for (var i=0; i < aArray.length; i++) {
+	            var theID = aArray[i];
+	            var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+	            var divHeight = $(theID).height(); // get the height of the div in question
+	            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+	                $("a[href='" + theID + "']").addClass("nav-active");
+	            } else {
+	                $("a[href='" + theID + "']").removeClass("nav-active");
+	            }
+	        }
+
+	        if(windowPos + windowHeight == docHeight) {
+	            if (!$("nav li:last-child a").hasClass("nav-active")) {
+	                var navActiveCurrent = $(".nav-active").attr("href");
+	                $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+	                $("nav li:last-child a").addClass("nav-active");
+	            }
+	        }
+	    });
+	});
+    //fin scrollto
+
+    function cargaMultimedia()
+    {
+	    $("#multim").load("media");
     }
 
     function makeHome() { $("#sb-site").load("home"); }
-
 </script>
 </html>

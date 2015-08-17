@@ -5,7 +5,7 @@
 /*Cambiar el fondo de imagen aquí ==> */
  
 body{
-	background: #000 url(../img/inet-login-logo.jpg) top center;
+	background: #fff url(../img/inet-login-logo.jpg) top center;
 }
 
 .alert{

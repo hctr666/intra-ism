@@ -24,6 +24,7 @@
 {{ HTML::style('assets/css/bs/bootstrap_dtp.min.css'); }}
 {{ HTML::style('assets/css/bs/datatables.bstrap.css'); }}
 {{ HTML::style('assets/css/tables/datatables.resp.css'); }}
+{{ HTML::style('assets/css/docs/main.css') }}
 
 <style type="text/css">
 	.bs-example{ margin: 0; }
@@ -45,6 +46,11 @@
 </head>
 <body>
     @include('contenido.listadocs.listadocs-esms.listadocs-esms-header')
+    <div class="content-wrap">
+        {{ HTML::style('assets/css/bs/3.3.4/bootstrap.min.css'); }}
+        @include(('contenido.listadocs.listadocs-esms.listadocs-esms-content'))
+    </div>
+
 </body>
 </html>
 
@@ -61,6 +67,7 @@
 {{ HTML::script('assets/js/tables/datatables.responsive.min.js'); }}
 {{ HTML::script('assets/js/bs/datatables.bstrap.js'); }}
 {{ HTML::script('assets/js/util/nuevoDocComerc.js'); }}
+{{ HTML::script('assets/js/docs/main.js'); }}
 
 <script>
 

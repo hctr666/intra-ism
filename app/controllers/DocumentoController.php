@@ -146,156 +146,377 @@ class DocumentoController extends BaseController
 	 * Funcion para cargar la interfaz de
 	 * documentos de planta según area
 	 */
+	public function get_index_soporte()
+	{
+		return View::make('contenido.sistemas.soporte.index');
+	}
+
+
+	/*
+	 * Funcion para cargar la interfaz de
+	 * documentos de planta según area
+	 */
 	public function get_index_planta($sede, $area){
 		$nomarea = null;
-		$nomsede = null;
+		#Obtiene el nombre de la sede
+		$nomsede = explode('|', $this->get_sede($sede));
+		$nomsede = $nomsede[0];
+
 		$img_url = URL::asset('assets/icons/esms.jpg');
 		$id_emp = null;
 		$res_org = null;
 		$res_mof = null;
-		$res_rit = null;
-		$res_rsst = null;
 		$res_foda = null;
 		$res_pol = null;
 		$res_proc = null;
-		$res_rpc = null;
-		$res_modm = null;
-		$extra = null;
 
-		switch ($sede) {
-			case 'aqp':
-				$nomsede = 'Arequipa';
-				break;
-			
-			case 'h':
-				$nomsede = 'Huaura';
-				break;
-		}
+		#Obtiene el id de la empresa
+		$id_emp = explode('|', $this->get_sede($sede));
+		$id_emp = $id_emp[1];
 
 		switch ($area) {
+			case 'esms':
+				$document = new Documento;
+				$nomarea = "Planta";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 32);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 32);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 32);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 32);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 32);
+				$res_rsst = $document->selec_doc_esms($id_emp, 'RSST', 32);
+				$res_rit = $document->selec_doc_esms($id_emp, 'RIT', 32);
+				$res_rpc = $document->selec_doc_esms($id_emp, 'RPC', 32);
+				$res_modm = $document->selec_doc_esms($id_emp, 'modem', 32);
+				break;
+
 			case 'sist':
 				$document = new Documento;
 				$nomarea = "Sistemas";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 24);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 24);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 24);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 24);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 24);
 				break;
 			
 			case 'comu':
 				$document = new Documento;
 				$nomarea = "Comunicaciones";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 8);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 8);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 8);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 8);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 8);
 				break;
 
 			case 'ghuma':
 				$document = new Documento;
 				$nomarea = "Gestión Humana";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 12);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 12);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 12);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 12);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 12);
 				break;
 
-			case 'fi-co':
+			case 'fina':
 				$document = new Documento;
-				$nomarea = "Finanzas/Contabilidad";
+				$nomarea = "Finanzas";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 11);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 11);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 11);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 11);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 11);
 				break;
 
 			case 'legal':
 				$document = new Documento;
 				$nomarea = "Legal";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 30);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 30);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 30);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 30);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 30);
 				break;
 
 			case 'logis':
 				$document = new Documento;
 				$nomarea = "Logística";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 14);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 14);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 14);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 14);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 14);
 				break;
 
 			case 'produ':
 				$document = new Documento;
 				$nomarea = "Producción";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 18);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 18);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 18);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 18);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 18);
 				break;
 
 			case 'soste':
 				$document = new Documento;
 				$nomarea = "Sostenibilidad";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 23);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 23);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 23);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 23);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 23);
 				break;
 
 			case 'segu':
 				$document = new Documento;
 				$nomarea = "Seguridad Industrial";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 21);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 21);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 21);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 21);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 21);
 				break;
 
 			case 'salud':
 				$document = new Documento;
 				$nomarea = "Salud Ocupacional";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 31);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 31);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 31);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 31);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 31);
 				break;
 
 			case 'i+d':
 				$document = new Documento;
 				$nomarea = "I + D";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 13);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 13);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 13);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 13);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 13);
 				break;
 
 			case 'proy':
 				$document = new Documento;
 				$nomarea = "Proyectos";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 19);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 19);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 19);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 19);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 19);
 				break;
 
 			case 'mant':
 				$document = new Documento;
 				$nomarea = "Mantenimiento";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 15);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 15);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 15);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 15);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 15);
 				break;
 
 			case 'sgi':
 				$document = new Documento;
 				$nomarea = "SGI";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 22);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 22);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 22);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 22);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 22);
+				break;
+
+			case 'cont':
+				$document = new Documento;
+				$nomarea = "Contabilidad";
+				$res_org = $document->selec_doc_esms($id_emp, 'organigrama', 9);
+				$res_mof = $document->selec_doc_esms($id_emp, 'MOF', 9);
+				$res_foda = $document->selec_doc_esms($id_emp, 'FODA', 9);
+				$res_pol = $document->selec_doc_esms($id_emp, 'politica', 9);
+				$res_proc = $document->selec_doc_esms($id_emp, 'procedimiento', 9);
 				break;
 		}
-		return View::make('contenido.listadocs.listadocs-esms.listadocs-esms',
-							array('area' => $nomarea, 'cod' => $area, 'sede' => $nomsede,
-								  'url_logo' => $img_url, 'orign' => $area, 'res_org' => $res_org,
-								  'res_mof' => $res_mof, 'res_rit' => $res_rit, 'res_rsst' => $res_rsst,
-						          'res_foda' => $res_foda, 'res_pol' => $res_pol, 'res_proc' => $res_proc, 'res_rpc' => $res_rpc,
-						          'res_modm' => $res_modm, 'extra' => $extra
-						 		 )
-		);
-	}
-
-	public function store_esms($cod){
-		if (Input::hasFile('doc')) {
-			if ($tipo != '0') {
-				switch ($cod) {
-					case 'sist':
-						# code...
-						break;
-					
-					case 'comu':
-						# code...
-						break;
-
-					case 'ghuma':
-						# code...
-						break;
-				}
-			} else {
-				#error no se seleccionó documento
-			}
+		if ( $area == 'esms' ) {
+			return View::make('contenido.listadocs.listadocs-esms.listadocs-esms',
+								array('area' => $nomarea, 'cod' => $area, 'sede' => $nomsede,
+									  'cod_sede' => $sede, 'res_rpc' => $res_rpc, 'res_modm' => $res_modm,
+									  'url_logo' => $img_url, 'orign' => $area, 'res_org' => $res_org,
+									  'res_mof' => $res_mof, 'res_foda' => $res_foda, 'res_pol' => $res_pol,
+									  'res_proc' => $res_proc, 'res_rsst' => $res_rsst, 'res_rit' => $res_rit
+							 		 )
+			);
 		} else {
-			#error no hay ningún documento cargado
+			return View::make('contenido.listadocs.listadocs-esms.listadocs-esms',
+								array('area' => $nomarea, 'cod' => $area, 'sede' => $nomsede,
+									  'cod_sede' => $sede, 'url_logo' => $img_url, 'orign' => $area,
+									  'res_org' => $res_org, 'res_mof' => $res_mof, 'res_foda' => $res_foda,
+									  'res_pol' => $res_pol, 'res_proc' => $res_proc
+							 		 )
+			);
 		}
 	}
 
-	public function store_comerc($cod){		
+	public function get_sede($sede){
+		$nomsede = '';
+		$id_emp = null;
+		switch ($sede) {
+			case 'aqp':
+				$id_emp = 2;
+				$nomsede = Empresa::find($id_emp)->sede_emp;
+				break;
+			
+			case 'h':
+				$id_emp = 1;
+				$nomsede = Empresa::find($id_emp)->sede_emp;
+				break;
+		}
+		return $nomsede.'|'.$id_emp;
+	}
+
+	public function store_esms($sede, $area){
+		#$base_url = "c:/xampp/htdocs/ism-intra-fs/docs/";
+		$base_url = public_path()."/docs/";
 		$url_destino = ""; //var url de destino
 		$filename = ""; //nombre de archivo
 		$desc_doc = "";//nombre documento para db
+		$url_doc = "";//url acceso desde browser
+		$tipo = Input::get('tipo-doc'); //obtiene valor tipo documento seleccionado
+		$nom_tipo = "";
+		$nom_sede = explode('|', $this->get_sede($sede));
+		$nom_sede = strtolower($nom_sede[0]);
+
+		if (Input::hasFile('doc')) {
+			if ($tipo != '0') {
+				$carg = Input::get('tcarg');
+				$file = Input::file('doc'); //obtiene archivo
+				$filename = $file->getClientOriginalName(); //obtiene nombre archivo
+
+				#se crea el folder esms
+				if (!file_exists($base_url."ESMS")) { #si no existe
+					$this->creafolder($base_url,"ESMS"); #establece nombre folder documentos
+					$url_destino = $base_url.'ESMS/';
+				} else {
+					$url_destino = $base_url.'ESMS/';
+				}
+
+				#Se crea el folder sede
+				if (!file_exists($url_destino.$nom_sede)) { //si el folder no existe
+					$this->creafolder($url_destino, $nom_sede); //se crea folder sede
+					$url_destino = $url_destino.$nom_sede.'/';
+				} else {
+					$url_destino = $url_destino.$nom_sede.'/';
+				}
+
+				#Se crea folder area
+				if (!file_exists($url_destino.$area)) { //si el folder no existe
+					$this->creafolder($url_destino, $area); //se crea folder
+					$url_destino = $url_destino.$area.'/';
+				} else {
+					$url_destino = $url_destino.$area.'/';
+				}
+
+				$nom_tipo = $this->getNomTipo($tipo);//se obtiene la descripción del tipo de documento
+				#buscar ruta tipo doc
+				if (!file_exists($url_destino.$nom_tipo)) { //si el folder no existe
+					$this->creafolder($url_destino, $nom_tipo); //se crea folder
+					$url_destino = $url_destino.$nom_tipo.'/';
+				} else {
+					$url_destino = $url_destino.$nom_tipo.'/';
+				}
+
+				#nombrar doc
+				$filename = strtolower('esms-'.$sede.'_'.$nom_tipo.'_'.$carg.'_'.$area.'_'.Time::fecha_hoy().'.pdf');
+				$desc_doc = strtoupper($area.'-'.$nom_sede.'-'.$nom_tipo.'_'.$carg);
+
+				#almacenar en folder
+				if (!file_exists($url_destino.$filename))
+				{
+					$uploadSuccess = $file->move($url_destino, $filename);
+					
+					if ($uploadSuccess)
+					{
+						#$url_doc = str_replace("c:/xampp/htdocs", "localhost", $url_destino);
+						$url_doc = str_replace(public_path(), "", $url_destino);
+						$documento = new Documento;
+						$documento->desc_doc = $desc_doc;
+						$documento->url_file = $url_doc.$filename;
+						$documento->tipo_doc = $this->getNomTipo($tipo);
+						$documento->area_id = $documento->get_id_area($area);
+						$documento->elaborado = Input::get("fch-elab");
+
+						#Obtener id empresa
+						$documento->empresa_id = explode('|', $this->get_sede($sede));
+						$documento->empresa_id = strtolower($documento->empresa_id[1]);
+						
+						$documento->user_id = Auth::user()->id;
+						$documento->version = Input::get('txtversion');
+						$documento->state = true;
+						$success = $documento->save();
+
+						if ($success)
+						{
+							return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+									->with('msj-upload-ok', 'El archivo se guardó correctamente :)');
+						}
+						else
+						{
+							return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+    								->with('upload_error', 'El archivo no se guardó :(');
+						}
+					}
+					else
+					{
+						return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+								->with('upload_error', 'El archivo no se almacenó :(');						
+					}
+				}
+				else
+				{
+					return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+							->with('upload_error', 'El archivo ya existe :(');
+				}
+			}
+			else
+			{ 
+				/*error no se seleccionó tipo documento */
+			}
+		}
+		else
+		{
+			#error no hay ningún documento cargado
+			return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+					->with('upload_error', 'No hay ningún documento cargado :(');
+		}
+	}
+
+	public function store_comerc($cod)
+	{	
+		$url_destino = ""; //var url de destino
+		$filename = ""; //nombre de archivo
+		$desc_doc = "";//nombre documento para la db
 		$url_doc = "";//url acceso desde browser
 		$foldername = ""; //nombre de folder
 		$tipo = Input::get('tipo-doc'); //obtiene valor tipo documento seleccionado
 		$tipo_fac = Input::get('fac-tipo');
 
-		if (Input::hasFile('doc')) { //Si hay documento seleccionado
-			if ($tipo != '0') { //Si ha seleccionado tipo documento
+		if (Input::hasFile('doc'))
+		{ //Si hay documento seleccionado
+			if ($tipo != '0')
+			{ //Si ha seleccionado tipo documento
 				$file = Input::file('doc'); //obtiene archivo
 				$filename = $file->getClientOriginalName(); //obtiene nombre archivo
-				$foldername = "c:/xampp/htdocs/ism-intra-fs/docs/"; //establece nombre folder documentos
-	        	
+				#$foldername = "c:/xampp/htdocs/ism-intra-fs/docs/"; //establece nombre folder documentos
+	        	$foldername = public_path()."/docs/";
+
 	        	//asigna la carpeta correspondiente y el nombre del documento
-				switch ($cod) {
-					case 'ga': //si el documento pertenece a GYA
-						if (!file_exists($foldername."/GYA")) { //si el archivo no existe
+				switch ($cod)
+				{
+					case 'ga':
+						if (!file_exists($foldername."/GYA"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "GYA"); //se crea folder
 						}
 						$url_destino = $foldername."GYA"; //url destino
@@ -310,17 +531,11 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename."_gya_".Time::fecha_hoy().".pdf";
-
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
-					
+
 					case 'sl':
-						if (!file_exists($foldername."/SL")) { //si el archivo no existe
+						if (!file_exists($foldername."/SL"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "SL"); //se crea folder
 						}
 						$url_destino = $foldername."SL"; //url destino
@@ -335,18 +550,11 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename."_slake_".Time::fecha_hoy().".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
 
 					case 'ck':
-						if (!file_exists($foldername."/CK")) { //si el archivo no existe
+						if (!file_exists($foldername."/CK"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "CK"); //se crea folder
 						}
 						$url_destino = $foldername."CK"; //url destino
@@ -361,18 +569,11 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename."_cynkat_".Time::fecha_hoy().".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
 
 					case 'ptv':
-						if (!file_exists($foldername."/PTV")) { //si el archivo no existe
+						if (!file_exists($foldername."/PTV"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "PTV"); //se crea folder
 						}
 						$url_destino = $foldername."PTV"; //url destino
@@ -387,18 +588,11 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename."_ptv_".Time::fecha_hoy().".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
 
 					case 'thr':
-						if (!file_exists($foldername."/THR")) { //si el archivo no existe
+						if (!file_exists($foldername."/THR"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "THR"); //se crea folder
 						}
 						$url_destino = $foldername."THR"; //url destino
@@ -412,19 +606,12 @@ class DocumentoController extends BaseController
 						$desc_doc = $filename."-THR";//nombre par almacenar en la bd
 
 						//se asigna el nombre del documento
-						$filename = $filename."_thr_".Time::fecha_hoy().".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
+						$filename = $filename."_thr_".Time::fecha_hoy().".pdf";	
 						break;
 
 					case 'ch':
-						if (!file_exists($foldername."/CHAN")) { //si el archivo no existe
+						if (!file_exists($foldername."/CHAN"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "CHAN"); //se crea folder
 						}
 						$url_destino = $foldername."CHAN"; //url destino
@@ -439,18 +626,11 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename.".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
 
 					case 'bhr':
-						if (!file_exists($foldername."/BHR")) { //si el archivo no existe
+						if (!file_exists($foldername."/BHR"))
+						{ //si el archivo no existe
 							$this->creafolder($foldername, "BHR"); //se crea folder
 						}
 						$url_destino = $foldername."BHR"; //url destino
@@ -465,52 +645,82 @@ class DocumentoController extends BaseController
 
 						//se asigna el nombre del documento
 						$filename = $filename.".pdf";
-
-						//$url_destino = public_path()."/docs/GYA/";
-						if (!file_exists($url_destino.$filename)) {
-							$uploadSuccess = $file->move($url_destino, $filename);
-						} else {
-							return Redirect::to('documentos/'.$cod)
-									->with('upload_error', 'El archivo ya existe :(');
-						}
 						break;
 				}
 
-				$url_doc = str_replace("c:/xampp/htdocs", "localhost", $url_destino);
+				//$url_destino = public_path()."/docs/GYA/";
+				if (!file_exists($url_destino.$filename))
+				{
+					$uploadSuccess = $file->move($url_destino, $filename);
 
-				$documento = new Documento;
-				$documento->desc_doc = $desc_doc;
-				$documento->url_file = $url_doc.$filename;
-				if ($cod == 'bhr' || $cod == 'ch') {
-					$documento->tipo_doc = $this->getNomTipo($tipo_fac);
-				} else {
-					$documento->tipo_doc = $this->getNomTipo($tipo);
+					if ($uploadSuccess)
+					{
+						#$url_doc = str_replace("c:/xampp/htdocs", "localhost", $url_destino);
+						$url_doc = str_replace(public_path(), "", $url_destino);
+
+						$documento = new Documento;
+						$documento->desc_doc = $desc_doc;
+						$documento->url_file = $url_doc.$filename;
+						if ($cod == 'bhr' || $cod == 'ch')
+						{
+							$documento->tipo_doc = $this->getNomTipo($tipo_fac);
+						}
+						else
+						{
+							$documento->tipo_doc = $this->getNomTipo($tipo);
+						}
+						
+						if ($cod == 'bhr' || $cod == 'ch')
+						{
+							$documento->area_id = Auth::user()->area_id;
+						}
+						else
+						{
+							$documento->area_id = Input::get('orign-de');
+						}
+
+						$documento->elaborado = Input::get('fch-elab');
+						$documento->aprobado = Input::get('fch-apro');
+						$documento->empresa_id = $this->getIdEmpresa($cod);
+						$documento->user_id = Auth::user()->id;
+						$documento->set_version($url_destino);
+						$documento->state = true;
+						$success = $documento->save();
+
+						if ($success)
+						{
+							return Redirect::to('documentos/' . $cod)
+									->with('msj-upload-ok', 'Documento cargado correctamente :)');
+						}
+						else
+						{
+							return Redirect::to('documentos/' . $cod)
+									->with('msj-upload-ok', 'El archivo no se guardó :((');
+						}
+
+					}
+					else
+					{
+						return Redirect::to('documentos/'.$cod)
+								->with('upload_error', 'El archivo no se almacenó :(');						
+					}
 				}
-				
-				if ($cod == 'bhr' || $cod == 'ch') {
-					$documento->area_id = Auth::user()->area_id;
-				} else {
-					$documento->area_id = Input::get('orign-de');
+				else
+				{
+					return Redirect::to('documentos/'.$cod)
+							->with('upload_error', 'El archivo ya existe :(');
 				}
-
-				$documento->elaborado = Input::get('fch-elab');
-				$documento->aprobado = Input::get('fch-apro');
-				$documento->empresa_id = $this->getIdEmpresa($cod);
-				$documento->user_id = Auth::user()->id;
-				$documento->set_version($url_destino);
-				$documento->state = true;
-				$documento->save();
-
-				return Redirect::to('documentos/' . $cod)
-					->with('msj-upload-ok', 'Documento cargado correctamente :)');
-
-			} else {
-				return Redirect::to('documentos/'.$cod)
-						->with('upload_error', 'Ocurrió un error al subir el archivo :////');
 			}
-		} else {
-			return Redirect::to('documentos/'.$cod)
-					->with('upload_error', 'Ocurrió un error al subir el archivo :/ :(');
+			else
+			{
+				#No se seleccionó tipo de documento cargado
+			}
+		}
+		else
+		{
+			#No hay ningún documento cargado
+			return Redirect::to('documentos/esms/'.$sede.'/'.$area)
+					->with('upload_error', 'No hay ningún documento cargado :(');
 		}
 	}
 
@@ -523,6 +733,7 @@ class DocumentoController extends BaseController
 		$result = null;
 		$tipo_d = null;
 		$cop = Input::get('c-op');
+		$cargo = Input::get('txcarg');
 
 		switch ($tipo) {
 			case '1':
@@ -548,7 +759,7 @@ class DocumentoController extends BaseController
 				} else {
 					$url_destino = $url_destino . "/MOF/";
 				}
-				$filename = "MOF";
+				$filename = "MOF_".$cargo;
 				break;
 
 			case '3':
@@ -811,7 +1022,6 @@ class DocumentoController extends BaseController
 			case 'bhr': $id = 9;
 				break;
 		}
-
 		return $id;
 	}
 
